@@ -1,197 +1,246 @@
-<html>
-<head> <meta http-equiv="content-type" content="text/html; charset=utf-8"></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regeln - LDTNE TTT Server</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        .header, .footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+        }
+        .header h2 {
+            font-size: 1.5rem;
+            color: #ddd18f;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        h3 {
+            border-bottom: 2px solid #444;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        h4 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #ddd18f;
+        }
+        ul, table {
+            margin: 20px 0;
+        }
+        ul {
+            list-style: disc inside;
+            padding: 0 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #fff;
+	    table-layout: fixed; /* Ensure equal column width */
+        }
+        table th, table td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: left;
+	    word-wrap: break-word; /* Prevent overflow */
+        }
+        table th {
+            background-color: #333;
+        }
+        .card {
+	    background-color: #1f1f1f;
+            color: #f0f0f0;
+            border: 1px solid #2c2c2c;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+         }
 
-<style>
-thead tr td:nth-child(1),
-tbody tr td:nth-child(1) {
-  font-weight: bold;
-  padding-left: 2em;
-  width: 7.5em;
-  min-width: 7.5em;
-  max-width: 7.5em;
-  word-break: break-all;
-}
+        /* Custom column widths for fixed layout */
+        table colgroup col:nth-child(1), table colgroup col:nth-child(2) {
+            width: 10%; /* First two columns are 20% wide */
+        }
+        table colgroup col:nth-child(3) {
+            width: 60%; /* Third column is 60% wide */
+        }
 
-tbody tr td:nth-child(2) {
-  width: 2em;
-  min-width: 2em;
-  max-width: 2em;
-  word-break: break-all;
-}
-</style>
+        .role-innocent { color: #32cd32; }
+        .role-detective { color: #1e90ff; }
+        .role-traitor { color: #ff4500; }
+        .role-neutral-killer { color: #ffa500; }
+        .role-neutral { color: #8c00c7; }
+    </style>
+</head>
+<body>
 
+<div class="container">
+    <div class="header">
+        <h1>LDTNE - TTT Server</h1>
+        <h2>Der Kodex</h2>
+    </div>
 
+    <!-- General Rules -->
+    <div class="card">
+        <h3>Allgemeine Regeln</h3>
+        <ul>
+            <li><span class="role-innocent">Innocents</span> dürfen nur bei verräterischem Verhalten schießen. RDM ist verboten!</li>
+            <li>KOS ohne Grund ist für <span class="role-innocent">Innocents</span> verboten!</li>
+            <li>Nach dem Tod ist Kommunikation im TS verboten.</li>
+            <li>Nur <span class="role-detective">Detectives</span> dürfen Befehle erteilen.</li>
+            <li>Waffen eines toten <span class="role-traitor">Traitors</span> dürfen nur mit Erlaubnis des <span class="role-detective">Detectives</span> aufgenommen werden.</li>
+            <li>AFK-Spieler dürfen nicht von <span class="role-innocent">Innocents</span> getötet werden.</li>
+            <li>Es besteht keine Pflicht, den Traitortester zu nutzen.</li>
+            <li>Es dürfen keine Platzansprüche gestellt werden.</li>
+            <li><span class="role-innocent">Innocents</span> dürfen <span class="role-detective">Detectives</span> nicht verletzen.</li>
+        </ul>
+    </div>
 
-<body bgcolor=#dbdbdb>
-<div style="text-align: center;">
-<div style="width: 80%; margin: 0px auto; border: 10px solid #c9d6e4; background-color: #ededed; padding: 10px; font-size: 12px; font-family: Tahoma; margin-top: 30px; color: #818181; text-align: left;">
-<div style="font-size: 30px; font-family: impact; width: 100%; margin-bottom: 5px;">LDTNE - TTT Server</div>
-<br>
-Um auf diesem Server spielen zu dürfen, muss du dich an den Kodex halten.<br>
-Dabei handelt es sich nicht um irgendwelche Regeln, sondern um ein Gesetz.<br>
-<br>
+    <!-- Reasons for KOS -->
+    <div class="card">
+        <h3>Gründe für KOS</h3>
+        <ul>
+            <li>Ein Spieler tötet einen Nicht-<span class="role-traitor">Traitor</span>.</li>
+            <li>Ein Spieler verletzt andere Spieler.</li>
+            <li>Grundloses Herumschießen.</li>
+            <li>Ein Spieler trägt eine Traitorwaffe ohne Erlaubnis des <span class="role-detective">Detectives</span>.</li>
+            <li>Ausschlussverfahren aufgrund verbleibender Spieleranzahl.</li>
+        </ul>
+    </div>
 
-<h2><span style="font-family:Codex LT; font-size:200%; text-shadow: lightgrey 2px 3px;">Der Kodex</span></h2>
+    <!-- Role Overview -->
+    <div class="card">
+        <h3>Rollen Übersicht</h3>
+        <p>Die verschiedenen Rollen sind nach Gruppenzugehörigkeit unterteilt. Eckige Klammern zeigen an, ab wie vielen Spielern die Rolle auftreten kann.</p>
 
-<div style="width: 100%; text-align: left; margin: 20px; font-weight: normal;">
-	<p><h3>Allgemein:</h3>
-		<ul style="list-style-type:disc ;font-size:13px; line-height: 150%">
-			<li> <strong><span style="color:green">Innocents</span></strong> ist es nur bei verräterischem Verhalten (s. unten) erlaubt zu schießen. RDM (Random DeathMatch) ist verboten!</li>
-			<li> Ohne einen Grund ist KOS (Kill on sight) als <strong><span style="color:green">Innocent</span></strong> verboten! </li>
-			<li> Nach dem Tot ist das sprechen im TS verboten! </li>
-			<li> Nur der <strong><span style="color:blue">Detective</span></strong> darf Befehle erteilen! (z.B. Dürfen keine Aufforderungen, wie Innocent rückwärts zu buchstabieren, gestellt werden)  </li>
-			<li> Bevor ein Spieler eine Waffe eines toten <strong><span style="color:red">Traitors</span></strong> aufnimmt, muss er den <strong><span style="color:blue">Detective</span></strong> um Erlaubnis fragen.
-			<li> Spieler, die afk sind dürfen nicht von <strong><span style="color:green">Innocent</span></strong> getötet werden.
-			<li> Es besteht keine Pflicht in den Traitortester zu gehen. </li>
-			<li> Es dürfen keine Platzansprüche gestellt werden. </li>
-			<li> Ein <strong><span style="color:green">Innocent</span></strong> darf keinen <strong><span style="color:blue">Detective</span></strong> verletzen.
-		</ul>
-	</p>
+         <!-- Innocent Roles Overview -->
+    <div class="card">
+        <h3 class="role-innocent">Innocent Rollen</h3>
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tr><th>Rolle</th><th>Spieleranzahl</th><th>Beschreibung</th></tr>
+            <tr><td>Beacon</td><td>[6]</td><td>Stärker, wenn ein Innocent getötet wird. Wird nach einer bestimmten Anzahl bekanntgegeben.</td></tr>
+            <tr><td>Clairvoyant</td><td>[8]</td><td>Kann sehen, ob ein Spieler eine Spezialrolle hat.</td></tr>
+            <tr><td>Cupid</td><td>[6]</td><td>Kann ein Liebespaar erzeugen, das den Schaden teilt und zusammen stirbt.</td></tr>
+            <tr><td>Lycanthrope</td><td>[6]</td><td>Wird stärker, wenn er der letzte Innocent ist. Die Rolle ist dem Spieler unbekannt.</td></tr>
+            <tr><td>Occultist</td><td>[8]</td><td>Wird wiederbelebt, wenn er unter 25HP fällt, bevor er getötet wird.</td></tr>
+            <tr><td>Pharaoh</td><td>[6]</td><td>Hat ein Ankh, das einen Respawn ermöglicht, wenn es platziert ist. Erzeugt einen Graverobber.</td></tr>
+            <tr><td>Priest</td><td>[7]</td><td>Kann Spieler mit einer Deagle als Innocent markieren, stirbt aber bei einem gegnerischen Spieler.</td></tr>
+            <tr><td>Spectre</td><td>[6]</td><td>Sucht den Killer heim und respawnt bei dessen Tod.</td></tr>
+            <tr><td>Spy</td><td>[8]</td><td>Infiltriert die Traitors und sieht, wie einer von ihnen aussieht.</td></tr>
+            <tr><td>Survivalist</td><td>[7]</td><td>Normaler Innocent mit einem Shop.</td></tr>
+            <tr><td>Trapper</td><td>[6]</td><td>Darf die Traitorfallen verwenden.</td></tr>
+            <tr><td>Wrath</td><td>[8]</td><td>Wenn er von einem Innocent getötet wird, kommt er als Traitor zurück.</td></tr>
+        </table>
+    </div>
 
-	<p> <h3> Gründe für KOS: </h3>
-		<ul style="list-style-type:disc ;font-size:13px; line-height: 150%">
-			<li> Ein Spieler hat ein anderen Spieler getötet, der kein <strong><span style="color:red">Traitor</span></strong> war. </li>
-			<li> Ein Spieler verletzt einen anderen Spieler. </li>
-			<li> Sinn- und grundloses herumschießen. </li>
-			<li> Ein Spieler läuft mit einer Traitorwaffe herum, ohne den <strong><span style="color:blue">Detective</span></strong> zuvor um Erlaubnis gefragt zu haben </li>
-			<li> Ausschlussverfahren: Anzahl der verbleibenden Spieler (proven <strong><span style="color:green">Innocent</span></strong>) </li>
-		</ul>
-	</p>
+    <!-- Detective Roles Overview -->
+    <div class="card">
+        <h3 class="role-detective">Detective Rollen</h3>
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tr><th>Rolle</th><th>Spieleranzahl</th><th>Beschreibung</th></tr>
+            <tr><td>Sheriff</td><td>[8]</td><td>Kann einen anderen Spieler zum Deputy machen.</td></tr>
+            <tr><td>Deputy</td><td>[8]</td><td>Wird vom Sheriff ausgewählt und muss ihn unterstützen. Stirbt zusammen mit dem Sheriff.</td></tr>
+            <tr><td>Sniffer</td><td>[8]</td><td>Hat anstelle eines DNA-Scanners eine Lupe, um Fußspuren der Traitors zu finden.</td></tr>
+            <tr><td>Vigilante</td><td>[6]</td><td>Hat einen Damage Multiplier, der sich bei Töten eines Traitors erhöht und bei einem Innocent verringert.</td></tr>
+        </table>
+    </div>
 
-	<p> <h3> KEINE Gründe für KOS: </h3>
-		<ul style="list-style-type:disc ;font-size:13px; line-height: 150%">
-			<li> Das Verweigern von Antworten gegenüber Terroristen.</li>
-			<li> "Seltsames" Sprechen. </li>
-			<li> Von einem Spieler verfolgt werden. </li>
-		</ul>
-	</p>
-	<br>
-	<p> <h3> Bestrafung: </h3>
-	<div style="margin:20px">Wer meint, sich nicht an den Kodex halten zu müssen, muss einen Kuchen backen!
-	</div>
-	</p>
+    <!-- Traitor Roles Overview -->
+    <div class="card">
+        <h3 class="role-traitor">Traitor Rollen</h3>
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tr><th>Rolle</th><th>Spieleranzahl</th><th>Beschreibung</th></tr>
+            <tr><td>Accomplice</td><td>[8]</td><td>Wird von den Traitors gesehen, weiß aber nicht, wer die Traitors sind.</td></tr>
+            <tr><td>Blight</td><td>[6]</td><td>Wird er getötet, nimmt der Mörder Schaden bis zu 1HP, es sei denn, er heilt sich.</td></tr>
+            <tr><td>Defective</td><td>[10]</td><td>Ein Traitor, der wie ein Detective aussieht, aber nur von den Traitors als solchen erkannt wird.</td></tr>
+            <tr><td>Executioner</td><td>[6]</td><td>Macht zusätzlichen Schaden auf einem vorbestimmten Ziel und weniger bei den restlichen Spielern.</td></tr>
+            <tr><td>Glutton</td><td>[6]</td><td>Muss seinen Hunger stillen, indem er andere Spieler und Leichen isst. Ansonsten wird er zum Ravenous (Neutral Killer).</td></tr>
+            <tr><td>Graverobber</td><td>[6]</td><td>Wird durch Platzieren des Ankh gespawnt. Muss das Ankh stehlen, um sich wiederbeleben zu können.</td></tr>
+            <tr><td>Hitman</td><td>[6]</td><td>Muss vorbestimmte Ziele ausschalten, um viele Credits zu bekommen.</td></tr>
+            <tr><td>Mesmerist</td><td>[6]</td><td>Kann mit einem Defibrillator Tote zu Thralls wiederbeleben.</td></tr>
+            <tr><td>Thrall</td><td>[6]</td><td>Wiederbelebt durch den Mesmerist, sind danach Traitors.</td></tr>
+            <tr><td>Vampire</td><td>[10]</td><td>Kann nach einem Kill zu einer Fledermaus werden und Blut saugen, um sich zu heilen.</td></tr>
+        </table>
+    </div>
+
+    <!-- Neutral Killer Roles Overview -->
+    <div class="card">
+        <h3 class="role-neutral-killer">Neutrale Killer Rollen</h3>
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tr><th>Rolle</th><th>Spieleranzahl</th><th>Beschreibung</th></tr>
+            <tr><td>Doppelganger</td><td>[6]</td><td>Muss jeden töten! Kann das Aussehen und die Funktion einer anderen Rolle einnehmen.</td></tr>
+            <tr><td>Infected</td><td>[6]</td><td>Muss jeden töten! Jeder, den er tötet, wird zu seinem Zombie!</td></tr>
+            <tr><td>Jackal</td><td>[7]</td><td>Muss jeden töten! Kann sich mit der Deagle einen Sidekick machen, der ihn unterstützen muss!</td></tr>
+            <tr><td>Necromancer</td><td>[7]</td><td>Muss jeden töten! Kann Spieler als seine Zombies wiederbeleben.</td></tr>
+            <tr><td>Ravenous</td><td>[6]</td><td>Muss jeden töten! Entsteht aus dem Glutton, wenn dieser zu hungrig wird.</td></tr>
+            <tr><td>Restless</td><td>[7]</td><td>Muss jeden töten! Wird nach jedem Tod wiederbelebt, aber schwächer.</td></tr>
+            <tr><td>Serialkiller</td><td>[8]</td><td>Muss jeden töten! Hat ein Tracker-Item und bekommt Credits von Leichen.</td></tr>
+            <tr><td>Sidekick</td><td>[7]</td><td>Muss den, der ihn zum Sidekick gemacht hat, unterstützen.</td></tr>
+        </table>
+    </div>
+
+    <!-- Neutral Roles Overview -->
+    <div class="card">
+        <h3 class="role-neutral">Neutrale Rollen</h3>
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tr><th>Rolle</th><th>Spieleranzahl</th><th>Beschreibung</th></tr>
+            <tr><td>Amnesiac</td><td>[7]</td><td>Muss einen toten Spieler bestätigen und spielt dann mit der Rolle weiter.</td></tr>
+            <tr><td>Bodyguard</td><td>[8]</td><td>Belebt einen Spieler wieder. Wechselt in dessen Gruppe und muss ihn beschützen.</td></tr>
+            <tr><td>Jester</td><td>[8]</td><td>Muss die anderen Spieler überzeugen, ihn umzubringen, um zu gewinnen. Kann keinen Schaden zufügen.</td></tr>
+            <tr><td>Lovers</td><td>[6]</td><td>Werden vom Cupid erzeugt. Bekommen geteilten Schaden. Müssen als letzte übrigbleiben, wenn Innocents und Traitors noch leben, um zu gewinnen.</td></tr>
+            <tr><td>Marker</td><td>[8]</td><td>Muss jeden mit seiner Pistole markieren. Macht selbst keinen Schaden und ist immun dagegen.</td></tr>
+            <tr><td>Mimic</td><td>[8]</td><td>Muss die Rolle des jeweils nächsten Getöteten einnehmen. Mit Fähigkeiten und Ausrüstung des Spielers.</td></tr>
+        </table>
+    </div>   
+    </div>   
 </div>
 
-<br>
-<h2><span style="font-family:Codex LT; font-size:200%; text-shadow: lightgrey 2px 3px;">Custom Roles</span></h2>
-
-Hier sind die verschiedenen zustätzlichen Rollen aufgeführt, unterteilt in die verschiedenen Rollen-Gruppen. In eckigen Klammern ist jeweils angegeben, ab wie vielen Spielern die Rollen auftreten können.
-
-<div style="width: 100%; text-align: left; margin: 20px; font-weight: normal">
-	<p><h3 style="color:green">Innocent:</h3>
-	Um zu gewinnen müssen die Innocent + Detectives als letzte Gruppe überleben, abgesehen von den Neutral Roles.<br></br>
-
-	<table style="font-size:13px; color: #818181">
-		<tr>
-			<td>Claircoyant:</td><td> [8] </td><td>Sieht, ob ein Spieler eine Spezialrolle hat, oder nicht.</td>
-		</tr>
-		<tr>
-			<td>Occultist:</td><td> [8] </td><td>Wird wiederbelebt, wenn er unter 25HP fällt, bevor er getötet wird.</td>
-		</tr>
-		<tr>
-			<td>Spectre:</td><td> [6] </td><td>Sucht den Killer heim und respawnen bei dessen Tod.</td>
-		</tr>
-		<tr>
-			<td>Spy:</td><td> [8] </td><td>Infiltriert die Traitors und sieht wie einer von ihnen aus.</td>
-		</tr>
-		<tr>
-			<td>Survivalist:</td><td> [7] </td><td>Normaler Innocent mit einem Shop.</td>
-		</tr>
-		<tr>
-			<td>Trapper:</td><td> [6] </td><td>Darf die Trator Fallen verwenden.</td>
-		</tr>
-		<tr>
-			<td>Wrath:</td><td> [8] </td><td>Wenn er von einem Innocent getötet wirst, kommst er als Traitor zurück.</td>
-		</tr>
-		<tr>
-			<td>Beacon:</td><td> [6] </td><td>Wird stärker, wenn ein Innocent getötet wird.</td>
-		</tr>
-		<tr>
-			<td>Lycanthrope:</td><td> [6] </td><td>Wird deutlich stärker, wenn er der letzte Innocent ist. Die Rolle ist dem Spieler unbekannt.</td>
-		</tr>
-	</table>
-
-	<p><h3 style="color:blue">Detective:</h3>
-	Um zu gewinnen müssen die Innocent + Detectives als letzte Gruppe überleben, abgesehen von den Neutral Roles. Im Gegensatz zu den Innocent sind die Rollen der Detectives bekannt. Außerdem haben diese Zugriff auf einen Item-Shop.<br></br>
-
-	<table style="font-size:13px; color: #818181">
-		<tr>
-			<td>Sherrif:</td><td> [8] </td><td>Kann einen anderen Spieler zum Deputy machen kann.</td>
-		</tr>
-		<tr>
-			<td>Deputy:</td><td> [8] </td><td>Wird vom Sheriff ausgewählt und musst ihn unterstützen. Stirbt zusammen mit dem Sheriff.</td>
-		</tr>
-		<tr>
-			<td>Sniffer:</td><td> [8] </td><td>Hat anstelle eines DNA-Scanners eine Lupe, um Fußspuren der Traitor zu finden!</td>
-		</tr>
-		<tr>
-			<td>Vigilante:</td><td> [6] </td><td>Wenn er einen Traitor tötest, erhöht sich sein Damage Multiplier, bei einem Innocent verringert sich dieser.</td>
-		</tr>
-	</table>
-	</p>
-
-	<p><h3 style="color:red">Traitor:</h3>
-	Um zu gewinnen müssen die Traitor als letzte Gruppe übrigbleiben, abgesehen von den Neutral Roles. Die Traitor kennen sich untereinader und haben Zugriff auf einen Item-Shop.<br></br>
-	<table style="font-size:13px; color: #818181">
-		<tr>
-			<td >Glutton:</td><td> [6] </td><td>Muss seinen Hunger stillen, indem er andere Spieler und Leichen ist. Ansonsten wird er zum Ravenouse (s. Neutral Killers).</td>
-		</tr>
-		<tr>
-			<td >Hitman:</td><td> [6] </td><td>Muss vorbestimmte Ziele ausschalten um viele Credits zu bekommen.</td>
-		</tr>
-		<tr>
-			<td >Vampire:</td><td> [10] </td><td>Kann nach einem Kill zu einer Fledermaus werden und Blut saugen, um sich zu heilen.</td>
-		</tr>
-		<tr>
-			<td >Executioner:</td><td> [6] </td><td>Macht zusätzlichen Schaden auf einem vorbestimmten Ziel und weniger bei den restlichen Spielern.</td>
-		</tr>
-	</table>
-	</p>
-
-	<p><h3 style="color:orange">Neutral Killers:</h3>
-	<table style="font-size:13px; color: #818181">
-		<tr>
-			<td >Ravenous:</td><td> [6] </td><td>Muss alle töten. Entsteht aus dem Glutton, wenn dieser zu hungrig wird.</td>
-		</tr>
-		<tr>
-			<td >Infected:</td><td> [6] </td><td>Muss alle töten! Jeder, den er tötet, wird zu seinem Zombie!</td>
-		</tr>
-		<tr>
-			<td >Necromancer:</td><td> [7] </td><td>Muss alle töten! Kann Spieler als seine Zombies wiederbeleben!</td>
-		</tr>
-		<tr>
-			<td >Restless:</td><td> [7] </td><td>Muss alle töten! Wird nach jedem Tod wiederbelebt, wird dabei aber schwächer.</td>
-		</tr>
-	</table>
-	</p>
-
-	<p><h3 style="color:#8C00C7">Neutral Roles:</h3>
-	<table style="font-size:13px; color: #818181">
-		<tr>
-			<td >Bodyguard:</td><td> [8] </td><td>Belebt einen Spieler wieder. Er wechselt in dessen Gruppe und muss ihn beschützen.</td>
-		</tr>
-		<tr>
-			<td >Jester:</td><td> [8] </td><td>Muss die anderen Spieler überzeugen, ihn umzubringen. Macht Spielern keinen Schaden.</td>
-		</tr>
-		<tr>
-			<td >Marker:</td><td> [8] </td><td>Muss jeden mit seiner Pistole markieren. Macht und nimmt keinen Schaden.</td>
-		</tr>
-		<tr>
-			<td >Pirate:</td><td> [8] </td><td>Wenn ein Spieler dessen Vertrag bekommt, ist der Pirate in dessen Team.</td>
-		</tr>
-	</table>
-	</p>
-
+<div class="footer">
+    <p>&copy; 2024 LDTNE - TTT Server</p>
 </div>
-
-
-<div style="text-align: left; vertical-align: bottom; margin: 0px; margin-top:50px">
-	<a href="http://ldtne.noip.me/ttt_loading/?mapname=%m&steamid=%s">zurück zur Ladeseite </a>
-</div>
-</div>
-</div>
-
-
 
 </body>
 </html>
