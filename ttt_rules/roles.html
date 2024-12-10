@@ -43,7 +43,7 @@
             border-bottom: 2px solid #444;
             padding-bottom: 5px;
             margin-bottom: 1rem;
-         }
+        }
 
         .role-card {
             background-color: #1f1f1f;
@@ -52,6 +52,11 @@
             border-radius: 0.5rem;
             padding: 1rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .role-card.disabled {
+            color: #aaa;
+            background-color: #444;
         }
 
         .role-card h5 {
@@ -75,347 +80,122 @@
         .role-innocent { color: #32cd32; }
         .role-detective { color: #1e90ff; }
         .role-traitor { color: #ff4500; }
-        .role-neutral-killer { color: #ffa500; }
+        .role-killer { color: #ffa500; }
         .role-neutral { color: #8c00c7; }
+
+        .language-selector {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-de {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="container py-4">
-        <h1 class="text-center">TTT Custom Roles</h1>
+        <h1 class="text-center" id="pageTitle">TTT Custom Roles</h1>
         
-        <!-- Innocent Roles -->
-        <div class="role-group">
-            <h3 class="role-innocent">Innocent:</h3>
-            <div class="row g-3">
-                <!-- Beacon -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Beacon <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-beacon"></i></h5>
-                        <div id="description-beacon" class="collapse role-description">
-                            <p>The Beacon gains power as teammates die, improving stats like speed and damage. If they kill an innocent, they revert to a regular innocent and take damage. If they accumulate enough power, their role is revealed, becoming a trusted figure for the team.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Clairvoyant -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Clairvoyant <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-clairvoyant"></i></h5>
-                        <div id="description-clairvoyant" class="collapse role-description">
-                            <p>The Clairvoyant can see the special roles of all non-standard players. They can also kill the Jester without triggering its win condition, and after doing so, the Jester respawns as their Sidekick.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Cupid -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Cupid <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-cupid"></i></h5>
-                        <div id="description-cupid" class="collapse role-description">
-                            <p>Cupid starts with an invisible crossbow that makes two players fall in love. If used after someone's death, the effect is voided.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Lovers -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Lovers <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-lovers"></i></h5>
-                        <div id="description-lovers" class="collapse role-description">
-                            <p>Lovers split damage between them, but if one dies, the other dies of a broken heart. If on opposite teams, they form their own team to win when everyone else is dead.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Lycanthrope -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Lycanthrope <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-lycanthrope"></i></h5>
-                        <div id="description-lycanthrope" class="collapse role-description">
-                            <p>The Lycanthrope gains a significant power boost if they're the last innocent standing, including increased speed, health, and damage.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Occultist -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Occultist <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-occultist"></i></h5>
-                        <div id="description-occultist" class="collapse role-description">
-                            <p>When the Occultist falls below 25% health, they are resurrected after death. They are fireproof but must beware of others being near their corpse, which will notify them of their revival.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pharaoh -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Pharaoh <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-pharaoh"></i></h5>
-                        <div id="description-pharaoh" class="collapse role-description">
-                            <p>The Pharaoh places an Ankh that converts a random Traitor into a Graverobber. If the Pharaoh dies, they can be revived by the Ankh unless stolen by the Graverobber.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Graverobber -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Graverobber <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-graverobber"></i></h5>
-                        <div id="description-graverobber" class="collapse role-description">
-                            <p>The Graverobber works against the Pharaoh and can steal their Ankh, causing their own revival instead.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Shinigami -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Shinigami <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-shinigami"></i></h5>
-                        <div id="description-shinigami" class="collapse role-description">
-                            <p>The Shinigami respawns as a fast-moving figure with a list of traitors. They gradually lose health over time and cannot communicate.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Spectre -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Spectre <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-spectre"></i></h5>
-                        <div id="description-spectre" class="collapse role-description">
-                            <p>When killed, the Spectre haunts their killer. If their attacker dies, the Spectre is revived.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Spy -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Spy <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-spy"></i></h5>
-                        <div id="description-spy" class="collapse role-description">
-                            <p>A Spy has a shop and can blend with the Traitors, but they don't know who the Traitors are, while the Traitors don't know the Spy's role.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Survivalist -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Survivalist <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-survivalist"></i></h5>
-                        <div id="description-survivalist" class="collapse role-description">
-                            <p>An enhanced Innocent with a configurable shop similar to the Detectiveâ€™s.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Trapper -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Trapper <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-trapper"></i></h5>
-                        <div id="description-trapper" class="collapse role-description">
-                            <p>The Trapper detects traps and sees visual indicators when traps are used. Other trap-users can also see when the Trapper uses a trap.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Wrath -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Wrath <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-wrath"></i></h5>
-                        <div id="description-wrath" class="collapse role-description">
-                            <p>If the Wrath is killed by an innocent, they become a Traitor, but if killed by anyone else, they die normally.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Detective Roles -->
-        <div class="role-group">
-            <h3 class="role-detective">Detective:</h3>
-            <div class="row g-3">
-                <!-- Sheriff -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Sheriff <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-sheriff"></i></h5>
-                        <div id="description-sheriff" class="collapse role-description">
-                            <p>The Sheriff is a Detective with a DeputyDeagle to recruit a colleague by shooting them. If the Sheriff dies, the Deputy dies too.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Deputy -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Deputy <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-deputy"></i></h5>
-                        <div id="description-deputy" class="collapse role-description">
-                            <p>The Deputy joins the Sheriffâ€™s team and can be recruited with a shot from the Sheriffâ€™s gun.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Sniffer -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Sniffer <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-sniffer"></i></h5>
-                        <div id="description-sniffer" class="collapse role-description">
-                            <p>The Sniffer can see footsteps and blood left by killers, helping identify suspects.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Vigilante -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Vigilante <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-vigilante"></i></h5>
-                        <div id="description-vigilante" class="collapse role-description">
-                            <p>The Vigilante gains a damage multiplier by killing Traitors, but loses it when killing Innocents.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Traitor Roles -->
-        <div class="role-group">
-            <h3 class="role-traitor">Traitor:</h3>
-            <div class="row g-3">
-                <!-- Accomplice -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Accomplice <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-accomplice"></i></h5>
-                        <div id="description-accomplice" class="collapse role-description">
-                            <p>The Accomplice works alongside the Traitor but doesn't know who they are. They can only buy one Traitor item and can't win alone.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Executioner -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Executioner <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-executioner"></i></h5>
-                        <div id="description-executioner" class="collapse role-description">
-                            <p>The Executioner has a target and deals extra damage to them. Killing non-targets results in a delay before a new target is assigned.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Glutton -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Glutton <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-glutton"></i></h5>
-                        <div id="description-glutton" class="collapse role-description">
-                            <p>The Glutton uses hunger to power their weapon, Devour, and can heal by eating corpses. If their hunger reaches zero, they transform into the Ravenous.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Hitman -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Hitman <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-hitman"></i></h5>
-                        <div id="description-hitman" class="collapse role-description">
-                            <p>The Hitman needs to kill their assigned target to earn credits. If the target dies another way, no reward is given.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Vampire -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Vampire <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-vampire"></i></h5>
-                        <div id="description-vampire" class="collapse role-description">
-                            <p>The Vampire must kill a player every minute to avoid Bloodlust, which damages them. While in Bloodlust, they heal for a portion of the damage they deal.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Neutral Killers -->
-        <div class="role-group">
-            <h3 class="role-neutral-killer">Neutral Killers:</h3>
-            <div class="row g-3">
-                <!-- Infested -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Infested <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-infested"></i></h5>
-                        <div id="description-infested" class="collapse role-description">
-                            <p>The Infested infects others by killing them, turning them into allies. If they die, they can respawn as long as their host stays alive.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Necromancer -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Necromancer <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-necromancer"></i></h5>
-                        <div id="description-necromancer" class="collapse role-description">
-                            <p>The Necromancer uses a defibrillator to revive dead bodies as zombies that fight for them. Zombies are slow and have limited ammo.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Serial Killer -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Serial Killer <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-serialkiller"></i></h5>
-                        <div id="description-serialkiller" class="collapse role-description">
-                            <p>The Serial Killer works alone, using a tracker item to see players' actions. They can steal credits but are not rewarded for kills.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Ravenous -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Ravenous <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-ravenous"></i></h5>
-                        <div id="description-ravenous" class="collapse role-description">
-                            <p>The Ravenous must kill everyone else to win, losing all weapons except for their Devour and emitting a blood-red smoke trail.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Restless -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Restless <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-restless"></i></h5>
-                        <div id="description-restless" class="collapse role-description">
-                            <p>The Restless can die multiple times, reviving each time with weakened stats until they run out of lives.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Neutral Roles -->
-        <div class="role-group">
-            <h3 class="role-neutral">Neutral Roles:</h3>
-            <div class="row g-3">
-                <!-- Bodyguard -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Bodyguard <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-bodyguard"></i></h5>
-                        <div id="description-bodyguard" class="collapse role-description">
-                            <p>The Bodyguard is assigned to protect a random player. If the protected player dies, the Bodyguard takes damage. If they kill their assigned player, they die.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Jester -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Jester <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-jester"></i></h5>
-                        <div id="description-jester" class="collapse role-description">
-                            <p>The Jesterâ€™s goal is to get killed by another player. If they are killed, they win, but they cannot kill themselves.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Marker -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Marker <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-marker"></i></h5>
-                        <div id="description-marker" class="collapse role-description">
-                            <p>The Marker marks players with a paintgun to win when enough players are marked. They can revive marked dead players. The Marker cannot deal damage and must be strategic in marking players.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pirate -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Pirate <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-pirate"></i></h5>
-                        <div id="description-pirate" class="collapse role-description">
-                            <p>The Pirate serves the player holding their contract. If the current master dies, the contract is dropped, and the Pirates switch allegiance to the new holder.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Unknown -->
-                <div class="col-md-4">
-                    <div class="role-card">
-                        <h5>Unknown <i class="expand-icon bi bi-caret-down-fill" data-bs-toggle="collapse" data-bs-target="#description-unknown"></i></h5>
-                        <div id="description-unknown" class="collapse role-description">
-                            <p>The Unknown loses if they survive until the end. However, if killed by another player, they respawn with the killerâ€™s role and assist them in winning.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Role Groups -->
+        <div class="role-group" id="roleContainer"></div>
     </div>
+
+    <!-- Add before closing body tag -->
+    <div class="language-selector">
+        <button id="langToggle" class="btn btn-outline-light">
+            <span class="lang-en">EN</span>
+            <span class="lang-de">DE</span>
+        </button>
+    </div>
+
+    <!-- Add script before closing body -->
+    <script>
+        async function loadRoles() {
+            const response = await fetch('lang.json');
+            const data = await response.json();
+            return data;
+        }
+    
+        let currentLang = 'en';
+
+        function createRoleCard(role, roleId, lang) {
+            return `
+                <div class="col-md-4">
+                    <div class="role-card ${!role.enabled ? 'disabled' : ''}">
+                        <h5>${role.title[lang]} 
+                            <i class="expand-icon bi bi-caret-down-fill" 
+                               data-bs-toggle="collapse" 
+                               data-bs-target="#description-${roleId}"></i>
+                        </h5>
+                        <div id="description-${roleId}" class="collapse role-description">
+                            <p>${role.desc[lang]}</p>
+                        </div>
+                    </div>
+                </div>`;
+        }
+    
+        function renderRoles(data, lang) {
+            const container = document.getElementById('roleContainer');
+            document.getElementById('pageTitle').textContent = data.ui.pageTitle[lang];
+            
+            container.innerHTML = Object.entries(data.ui.categories).map(([category, categoryData]) => {
+                const roles = data.roles[category];
+                if (!roles) return '';
+    
+                return `
+                    <div class="role-group">
+                        <h3 class="role-${category}">${categoryData[lang]}:</h3>
+                        <div class="row g-3">
+                            ${Object.entries(roles).map(([roleId, role]) => 
+                                createRoleCard(role, roleId, lang)
+                            ).join('')}
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+
+        function updateLanguageDisplay() {
+            const enSpan = document.querySelector('.lang-en');
+            const deSpan = document.querySelector('.lang-de');
+            enSpan.style.display = currentLang === 'en' ? 'inline' : 'none';
+            deSpan.style.display = currentLang === 'de' ? 'inline' : 'none';
+        }
+    
+        document.getElementById('langToggle').addEventListener('click', async () => {
+            currentLang = currentLang === 'en' ? 'de' : 'en';
+            document.documentElement.lang = currentLang;
+            const data = await loadRoles();
+            renderRoles(data, currentLang);
+            updateLanguageDisplay();
+        });
+    
+        // Add this function to detect URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Update initialization code
+        async function initialize() {
+            // Check URL for language parameter (e.g., ?lang=de)
+            const urlLang = getUrlParameter('lang');
+            if (urlLang && ['en', 'de'].includes(urlLang.toLowerCase())) {
+                currentLang = urlLang.toLowerCase();
+                document.documentElement.lang = currentLang;
+            }
+
+            const data = await loadRoles();
+            renderRoles(data, currentLang);
+            updateLanguageDisplay();
+        }
+
+        // Replace existing initialization with new function
+        loadRoles().then(initialize);
+    </script>
 
     <!-- Bootstrap JS, Popper.js, and Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

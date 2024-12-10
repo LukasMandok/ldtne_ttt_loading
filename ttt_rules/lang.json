@@ -1,0 +1,538 @@
+{
+"roles": {
+    "innocent": {
+        "beacon": {
+            "enabled": true,
+            "title": {
+                "en": "Beacon",
+                "de": "Leuchtfeuer"
+            },
+            "short": {
+                "en": "The Beacon gains power as teammates die. After five deaths he is revealed to the terrorists.",
+                "de": "Das Leuchtfeuer gewinnt an Kraft, wenn Teammitglieder sterben."
+            },
+            "desc": {
+                "en": "The Beacon gains power as teammates die, improving stats like speed and damage. If they kill an innocent, they revert to a regular innocent and take damage. If they accumulate enough power, their role is revealed, becoming a trusted figure for the team.",
+                "de": ""
+            }
+        },
+        "clairvoyant": {
+            "enabled": true,
+            "title": {
+                "en": "Clairvoyant",
+                "de": ""
+            },
+            "short": {
+                "en": "Can see the special roles of all non-standard players.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Clairvoyant can see the special roles of all non-standard players. They can also kill the Jester without triggering its win condition, and after doing so, the Jester respawns as their Sidekick.",
+                "de": ""
+            }
+        },
+        "cupid": {
+            "enabled": true,
+            "title": {
+                "en": "Cupid",
+                "de": ""
+            },
+            "short": {
+                "en": "Makes two players fall in love with an invisible crossbow.",
+                "de": ""
+            },
+            "desc": {
+                "en": "Cupid starts with an invisible crossbow that makes two players fall in love. If used after someone's death, the effect is voided.",
+                "de": ""
+            }
+        },
+        "lovers": {
+            "enabled": true,
+            "title": {
+                "en": "Lovers",
+                "de": ""
+            },
+            "short": {
+                "en": "Lovers share damage; if one dies, the other also dies.",
+                "de": ""
+            },
+            "desc": {
+                "en": "Lovers split damage between them, but if one dies, the other dies of a broken heart. If on opposite teams, they form their own team to win when everyone else is dead.",
+                "de": ""
+            }
+        },
+        "lycanthrope": {
+            "enabled": true,
+            "title": {
+                "en": "Lycanthrope",
+                "de": ""
+            },
+            "short": {
+                "en": "Gets a power boost if they're the last innocent standing.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Lycanthrope gains a significant power boost if they're the last innocent standing, including increased speed, health, and damage.",
+                "de": ""
+            }
+        },
+        "occultist": {
+            "enabled": true,
+            "title": {
+                "en": "Occultist",
+                "de": ""
+            },
+            "short": {
+                "en": "Resurrects when their health drops below 25%.",
+                "de": ""
+            },
+            "desc": {
+                "en": "When the Occultist falls below 25% health, they are resurrected after death. They are fireproof but must beware of others being near their corpse, which will notify them of their revival.",
+                "de": ""
+            }
+        },
+        "pharaoh": {
+            "enabled": true,
+            "title": {
+                "en": "Pharaoh",
+                "de": ""
+            },
+            "short": {
+                "en": "Places an Ankh to revive themselves or create a Graverobber.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Pharaoh places an Ankh that converts a random Traitor into a Graverobber. If the Pharaoh dies, they can be revived by the Ankh unless stolen by the Graverobber.",
+                "de": ""
+            }
+        },
+        "graverobber": {
+            "enabled": true,
+            "title": {
+                "en": "Graverobber",
+                "de": ""
+            },
+            "short": {
+                "en": "Steals the Pharaoh's Ankh to revive themselves.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Graverobber works against the Pharaoh and can steal their Ankh, causing their own revival instead.",
+                "de": ""
+            }
+        },
+        "shinigami": {
+            "enabled": true,
+            "title": {
+                "en": "Shinigami",
+                "de": ""
+            },
+            "short": {
+                "en": "Respawns as a fast-moving figure with a list of traitors.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Shinigami respawns as a fast-moving figure with a list of traitors. They gradually lose health over time and cannot communicate.",
+                "de": ""
+            }
+        },
+        "spectre": {
+            "enabled": true,
+            "title": {
+                "en": "Spectre",
+                "de": ""
+            },
+            "short": {
+                "en": "Haunts their killer and revives if their killer dies.",
+                "de": ""
+            },
+            "desc": {
+                "en": "When killed, the Spectre haunts their killer. If their attacker dies, the Spectre is revived.",
+                "de": ""
+            }
+        },
+        "spy": {
+            "enabled": true,
+            "title": {
+                "en": "Spy",
+                "de": ""
+            },
+            "short": {
+                "en": "Blends with the Traitors but doesn't know their identity.",
+                "de": ""
+            },
+            "desc": {
+                "en": "A Spy has a shop and can blend with the Traitors, but they don't know who the Traitors are, while the Traitors don't know the Spy's role.",
+                "de": ""
+            }
+        },
+        "survivalist": {
+            "enabled": true,
+            "title": {
+                "en": "Survivalist",
+                "de": ""
+            },
+            "short": {
+                "en": "An enhanced Innocent with a configurable shop.",
+                "de": ""
+            },
+            "desc": {
+                "en": "An enhanced Innocent with a configurable shop similar to the Detective’s.",
+                "de": ""
+            }
+        },
+        "trapper": {
+            "enabled": true,
+            "title": {
+                "en": "Trapper",
+                "de": ""
+            },
+            "short": {
+                "en": "Detects traps and sees visual indicators when traps are used.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Trapper detects traps and sees visual indicators when traps are used. Other trap-users can also see when the Trapper uses a trap.",
+                "de": ""
+            }
+        },
+        "wrath": {
+            "enabled": true,
+            "title": {
+                "en": "Wrath",
+                "de": ""
+            },
+            "short": {
+                "en": "Turns into a Traitor if killed by an Innocent.",
+                "de": ""
+            },
+            "desc": {
+                "en": "If the Wrath is killed by an innocent, they become a Traitor, but if killed by anyone else, they die normally.",
+                "de": ""
+            }
+        }
+    },
+    "detective": {
+        "sheriff": {
+            "enabled": true,
+            "title": {
+                "en": "Sheriff",
+                "de": ""
+            },
+            "short": {
+                "en": "A Detective who can recruit deputies by shooting them.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Sheriff is a Detective with a DeputyDeagle to recruit a colleague by shooting them. If the Sheriff dies, the Deputy dies too.",
+                "de": ""
+            }
+        },
+        "deputy": {
+            "enabled": true,
+            "title": {
+                "en": "Deputy",
+                "de": ""
+            },
+            "short": {
+                "en": "Assists the Sheriff after being recruited.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Deputy joins the Sheriff's team and can be recruited with a shot from the Sheriff’s gun.",
+                "de": ""
+            }
+        },
+        "sniffer": {
+            "enabled": true,
+            "title": {
+                "en": "Sniffer",
+                "de": ""
+            },
+            "short": {
+                "en": "Tracks footprints and blood trails left by killers.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Sniffer can see footsteps and blood left by killers, helping identify suspects.",
+                "de": ""
+            }
+        },
+        "vigilante": {
+            "enabled": true,
+            "title": {
+                "en": "Vigilante",
+                "de": ""
+            },
+            "short": {
+                "en": "Gains a damage multiplier for killing Traitors.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Vigilante gains a damage multiplier by killing Traitors, but loses it when killing Innocents.",
+                "de": ""
+            }
+        }
+    },
+    "traitor": {
+        "accomplice": {
+            "enabled": true,
+            "title": {
+                "en": "Accomplice",
+                "de": ""
+            },
+            "short": {
+                "en": "Works with Traitors but doesn't know their identities.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Accomplice works alongside the Traitor but doesn't know who they are. They can only buy one Traitor item and can't win alone.",
+                "de": ""
+            }
+        },
+        "executioner": {
+            "enabled": true,
+            "title": {
+                "en": "Executioner",
+                "de": ""
+            },
+            "short": {
+                "en": "Targets specific players for extra damage.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Executioner has a target and deals extra damage to them. Killing non-targets results in a delay before a new target is assigned.",
+                "de": ""
+            }
+        },
+        "glutton": {
+            "enabled": true,
+            "title": {
+                "en": "Glutton",
+                "de": ""
+            },
+            "short": {
+                "en": "Uses hunger to power their weapon and heal.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Glutton uses hunger to power their weapon, Devour, and can heal by eating corpses. If their hunger reaches zero, they transform into the Ravenous.",
+                "de": ""
+            }
+        },
+        "hitman": {
+            "enabled": true,
+            "title": {
+                "en": "Hitman",
+                "de": ""
+            },
+            "short": {
+                "en": "Must kill assigned targets to earn rewards.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Hitman needs to kill their assigned target to earn credits. If the target dies another way, no reward is given.",
+                "de": ""
+            }
+        },
+        "vampire": {
+            "enabled": true,
+            "title": {
+                "en": "Vampire",
+                "de": ""
+            },
+            "short": {
+                "en": "Kills to avoid Bloodlust, which damages them.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Vampire must kill a player every minute to avoid Bloodlust, which damages them. While in Bloodlust, they heal for a portion of the damage they deal.",
+                "de": ""
+            }
+        }
+    },
+    "killer": {
+        "infested": {
+            "enabled": true,
+            "title": {
+                "en": "Infested",
+                "de": ""
+            },
+            "short": {
+                "en": "Infects others and can respawn if their host is alive.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Infested infects others by killing them, turning them into allies. If they die, they can respawn as long as their host stays alive.",
+                "de": ""
+            }
+        },
+        "necromancer": {
+            "enabled": true,
+            "title": {
+                "en": "Necromancer",
+                "de": ""
+            },
+            "short": {
+                "en": "Revives bodies as zombies to fight for them.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Necromancer uses a defibrillator to revive dead bodies as zombies that fight for them. Zombies are slow and have limited ammo.",
+                "de": ""
+            }
+        },
+        "serial_killer": {
+            "enabled": true,
+            "title": {
+                "en": "Serial Killer",
+                "de": ""
+            },
+            "short": {
+                "en": "Uses a tracker to follow players' actions.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Serial Killer works alone, using a tracker item to see players' actions. They can steal credits but are not rewarded for kills.",
+                "de": ""
+            }
+        },
+        "ravenous": {
+            "enabled": true,
+            "title": {
+                "en": "Ravenous",
+                "de": ""
+            },
+            "short": {
+                "en": "Must kill everyone to win.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Ravenous must kill everyone else to win, losing all weapons except for their Devour and emitting a blood-red smoke trail.",
+                "de": ""
+            }
+        },
+        "restless": {
+            "enabled": true,
+            "title": {
+                "en": "Restless",
+                "de": ""
+            },
+            "short": {
+                "en": "Can revive multiple times with weakened stats.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Restless can die multiple times, reviving each time with weakened stats until they run out of lives.",
+                "de": ""
+            }
+        }
+    },
+    "neutral": {
+        "bodyguard": {
+            "enabled": true,
+            "title": {
+                "en": "Bodyguard",
+                "de": ""
+            },
+            "short": {
+                "en": "Protects an assigned player but dies if they fail.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Bodyguard is assigned to protect a random player. If the protected player dies, the Bodyguard takes damage. If they kill their assigned player, they die.",
+                "de": ""
+            }
+        },
+        "jester": {
+            "enabled": true,
+            "title": {
+                "en": "Jester",
+                "de": ""
+            },
+            "short": {
+                "en": "Tries to get killed to win.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Jester's goal is to get killed by another player. If they are killed, they win, but they cannot kill themselves.",
+                "de": ""
+            }
+        },
+        "marker": {
+            "enabled": true,
+            "title": {
+                "en": "Marker",
+                "de": ""
+            },
+            "short": {
+                "en": "Marks players to win once enough are marked.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Marker marks players with a paintgun to win when enough players are marked. They can revive marked dead players. The Marker cannot deal damage and must be strategic in marking players.",
+                "de": ""
+            }
+        },
+        "pirate": {
+            "enabled": true,
+            "title": {
+                "en": "Pirate",
+                "de": ""
+            },
+            "short": {
+                "en": "Serves the holder of their contract.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Pirate serves the player holding their contract. If the current master dies, the contract is dropped, and the Pirates switch allegiance to the new holder.",
+                "de": ""
+            }
+        },
+        "unknown": {
+            "enabled": true,
+            "title": {
+                "en": "Unknown",
+                "de": ""
+            },
+            "short": {
+                "en": "Respawns with the killer's role if killed.",
+                "de": ""
+            },
+            "desc": {
+                "en": "The Unknown loses if they survive until the end. However, if killed by another player, they respawn with the killer’s role and assist them in winning.",
+                "de": ""
+            }
+        }
+    }    
+},
+
+"ui": {
+    "pageTitle": {
+        "en": "TTT Custom Roles",
+        "de": "TTT Spezialrollen"
+    },
+    "categories" : {
+        "innocent": {
+            "en": "Innocent",
+            "de": "Unschuldige"
+        },
+        "detective": {
+            "en": "Detective",
+            "de": "Detektive"
+        },
+        "traitor": {
+            "en": "Traitor",
+            "de": "Verräter"
+        },
+        "killer": {
+            "en": "Neutral Killer",
+            "de": "Neutralle Killer"
+        },
+        "neutral": {
+            "en": "Neutral",
+            "de": "Neutral"
+        }
+    }
+}
+}
