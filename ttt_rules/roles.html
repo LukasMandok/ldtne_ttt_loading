@@ -67,6 +67,11 @@
             float: right;
             cursor: pointer;
             color: #aaa;
+            transition: transfomr 0.3s ease;
+        }
+
+        .expand-icon.rotate {
+            transform: rotate(180deg);
         }
 
         .expand-icon:hover {
@@ -93,13 +98,32 @@
         .lang-de {
             display: none;
         }
+
+        .input-group {
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        #searchBar {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        #searchBar::placeholder {
+            color: #bbb;
+        }
+
     </style>
 </head>
 
 <body>
+    
     <div class="container py-4">
         <h1 class="text-center" id="pageTitle">TTT Custom Roles</h1>
-        
+        <div class="input-group mb-3">
+            <input type="text" id="searchBar" class="form-control" placeholder="Search roles...">
+        </div>
         <!-- Role Groups -->
         <div class="role-group" id="roleContainer"></div>
     </div>
@@ -121,6 +145,8 @@
         }
     
         let currentLang = 'en';
+        let roleData = {};
+        let expandedCards = new Set();
 
         function createRoleCard(role, roleId, lang) {
             return `
@@ -138,7 +164,7 @@
                 </div>`;
         }
     
-        function renderRoles(data, lang) {
+        function renderRoles(data, lang, filter = '') {
             const container = document.getElementById('roleContainer');
             document.getElementById('pageTitle').textContent = data.ui.pageTitle[lang];
             
@@ -146,16 +172,50 @@
                 const roles = data.roles[category];
                 if (!roles) return '';
     
+                const filteredRoles = filter ? Object.entries(roles).filter(([roleId, role]) => {
+                    const titleMatches = Object.values(role.title).some(title => title.toLowerCase().includes(filter));
+                    const descMatches = Object.values(role.desc).some(desc => desc.toLowerCase().includes(filter));
+                    return titleMatches || descMatches;
+                }) : Object.entries(roles);
+
+                if (filteredRoles.length === 0) return '';
+
                 return `
                     <div class="role-group">
                         <h3 class="role-${category}">${categoryData[lang]}:</h3>
                         <div class="row g-3">
-                            ${Object.entries(roles).map(([roleId, role]) => 
+                            ${filteredRoles.map(([roleId, role]) => 
                                 createRoleCard(role, roleId, lang)
                             ).join('')}
                         </div>
                     </div>`;
             }).join('');
+
+            // Restore expanded state
+            expandedCards.forEach(cardId => {
+                const card = document.getElementById(cardId);
+                if (card) {
+                    card.classList.add('show');
+                    const icon = document.querySelector(`[data-bs-target="#${cardId}"]`);
+                    if (icon) {
+                        icon.classList.add('rotate');
+                    }
+                }
+            });
+
+            // Add event listeners to track expanded state
+            document.querySelectorAll('.expand-icon').forEach(icon => {
+                icon.addEventListener('click', (event) => {
+                    const targetId = event.target.getAttribute('data-bs-target').substring(1);
+                    if (expandedCards.has(targetId)) {
+                        expandedCards.delete(targetId);
+                        event.target.classList.remove('rotate');
+                    } else {
+                        expandedCards.add(targetId);
+                        event.target.classList.add('rotate');
+                    }
+                });
+            });
         }
 
         function updateLanguageDisplay() {
@@ -168,11 +228,16 @@
         document.getElementById('langToggle').addEventListener('click', async () => {
             currentLang = currentLang === 'en' ? 'de' : 'en';
             document.documentElement.lang = currentLang;
-            const data = await loadRoles();
-            renderRoles(data, currentLang);
+            let filter = document.getElementById('searchBar').value.toLowerCase()
+            renderRoles(rolesData, currentLang, filter);
             updateLanguageDisplay();
         });
-    
+
+        document.getElementById('searchBar').addEventListener('input', () => {
+            const filter = document.getElementById('searchBar').value.toLowerCase();
+            renderRoles(rolesData, currentLang, filter);
+        });
+            
         // Add this function to detect URL parameters
         function getUrlParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -188,8 +253,8 @@
                 document.documentElement.lang = currentLang;
             }
 
-            const data = await loadRoles();
-            renderRoles(data, currentLang);
+            rolesData = await loadRoles();
+            renderRoles(rolesData, currentLang);
             updateLanguageDisplay();
         }
 

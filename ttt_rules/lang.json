@@ -3,302 +3,370 @@
     "innocent": {
         "beacon": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Beacon",
                 "de": "Leuchtfeuer"
             },
             "short": {
-                "en": "The Beacon gains power as teammates die. After five deaths he is revealed to the terrorists.",
-                "de": "Das Leuchtfeuer gewinnt an Kraft, wenn Teammitglieder sterben."
+                "en": "They gains power as teammates die. After five deaths they are revealed to the terrorists.",
+                "de": "Sie gewinnen an Kraft, wenn Teamkameraden sterben. Nach fünf Todesfällen werden sie enttarnt."
             },
             "desc": {
                 "en": "The Beacon gains power as teammates die, improving stats like speed and damage. If they kill an innocent, they revert to a regular innocent and take damage. If they accumulate enough power, their role is revealed, becoming a trusted figure for the team.",
-                "de": ""
+                "de": "Der Beacon gewinnt an Kraft, wenn Teamkameraden sterben, und verbessert Werte wie Geschwindigkeit und Schaden. Wenn sie einen Innocentn töten, werden sie wieder zu einem normalen Innocentn und erleiden Schaden. Wenn sie genug Kraft gesammelt haben, wird ihre Rolle aufgedeckt und sie werden zu einer vertrauenswürdigen Figur für das Team."
             }
         },
         "clairvoyant": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Clairvoyant",
-                "de": ""
+                "de": "Hellseher"
             },
             "short": {
-                "en": "Can see the special roles of all non-standard players.",
-                "de": ""
+                "en": "Can recognize wether another player has a special role.",
+                "de": "Kann erkennen ob ein anderer Spieler eine Spezialrolle hat."
             },
             "desc": {
                 "en": "The Clairvoyant can see the special roles of all non-standard players. They can also kill the Jester without triggering its win condition, and after doing so, the Jester respawns as their Sidekick.",
-                "de": ""
+                "de": "Der Hellseher kann die Sonderrollen aller Nicht-Standard-Spieler sehen. Er kann den Narren auch töten, ohne seine Siegbedingung auszulösen, und danach erscheint der Narr wieder als sein Handlanger."
             }
         },
         "cupid": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Cupid",
-                "de": ""
+                "de": "Amor"
             },
             "short": {
-                "en": "Makes two players fall in love with an invisible crossbow.",
-                "de": ""
+                "en": "Can create a pair of lovers who share the damage and die together.",
+                "de": "Kann ein Liebespaar erzeugen, das den Schaden teilt und zusammen stirbt."
             },
             "desc": {
                 "en": "Cupid starts with an invisible crossbow that makes two players fall in love. If used after someone's death, the effect is voided.",
-                "de": ""
+                "de": "Amor beginnt mit einer unsichtbaren Armbrust, die zwei Spieler dazu bringt, sich ineinander zu verlieben. Wenn die Armbrust nach dem Tod eines Spielers eingesetzt wird, ist der Effekt nichtig."
             }
         },
         "lovers": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Lovers",
-                "de": ""
+                "de": "Liebespaar"
             },
             "short": {
-                "en": "Lovers share damage; if one dies, the other also dies.",
-                "de": ""
+                "en": "Lovers share damage. If one dies, the other also dies. They can win as their own team.",
+                "de": "Die Liebenden teilen sich den Schaden. Wenn einer stirbt, stirbt auch der andere. Sie können als ihr eigenes Team gewinnen."
             },
             "desc": {
                 "en": "Lovers split damage between them, but if one dies, the other dies of a broken heart. If on opposite teams, they form their own team to win when everyone else is dead.",
-                "de": ""
+                "de": "Die Liebenden teilen den Schaden untereinander. Wenn einer stirbt, stirbt der andere an gebrochenem Herzen. Wenn sie in entgegengesetzten Teams sind, bilden sie ihr eigenes Team, um zu gewinnen, wenn alle anderen tot sind."
             }
         },
         "lycanthrope": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Lycanthrope",
-                "de": ""
+                "de": "Lykanthrop"
             },
             "short": {
-                "en": "Gets a power boost if they're the last innocent standing.",
-                "de": ""
+                "en": "Gets a power boost if they're the last innocent standing. Prior he doesn't know his role.",
+                "de": "Erhält einen Energieschub, wenn er der letzte lebende Innocent ist. Davor kennt er seiner Rolle nicht."
             },
             "desc": {
                 "en": "The Lycanthrope gains a significant power boost if they're the last innocent standing, including increased speed, health, and damage.",
-                "de": ""
+                "de": "Der Lykanthrop erhält einen erheblichen Kraftschub, wenn er der letzte überlebende Innocent ist, einschließlich erhöhter Geschwindigkeit, Gesundheit und Schaden."
             }
         },
         "occultist": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Occultist",
-                "de": ""
+                "de": "Okkultist"
             },
             "short": {
-                "en": "Resurrects when their health drops below 25%.",
-                "de": ""
+                "en": "Resurrected if he falls below 25HP before being killed.",
+                "de": "Wird wiederbelebt, wenn er unter 25HP fällt, bevor er getötet wird."
             },
             "desc": {
                 "en": "When the Occultist falls below 25% health, they are resurrected after death. They are fireproof but must beware of others being near their corpse, which will notify them of their revival.",
-                "de": ""
+                "de": "Wenn der Okkultist unter 25% Gesundheit fällt, wird er nach dem Tod wiederbelebt. Sie sind feuerfest, müssen sich aber davor hüten, wenn sich andere in der Nähe ihrer Leiche aufhalten, da diese die Wiederbeleung mit bekommen."
             }
         },
         "pharaoh": {
-            "enabled": true,
+            "enabled": false,
+            "count": 6,
             "title": {
                 "en": "Pharaoh",
-                "de": ""
+                "de": "Pharao"
             },
             "short": {
                 "en": "Places an Ankh to revive themselves or create a Graverobber.",
-                "de": ""
+                "de": "Plaziert ein Ankh, um sich selbst wiederzubeleben zu können und erschafft einen Grabräuber."
             },
             "desc": {
                 "en": "The Pharaoh places an Ankh that converts a random Traitor into a Graverobber. If the Pharaoh dies, they can be revived by the Ankh unless stolen by the Graverobber.",
-                "de": ""
+                "de": "Der Pharao platziert ein Ankh, das einen zufälligen Traitor in einen Grabräuber verwandelt. Wenn der Pharao stirbt, kann er durch das Ankh wiederbelebt werden, es sei denn, es wurde vom Grabräuber gestohlen."
             }
         },
         "graverobber": {
-            "enabled": true,
+            "enabled": false,
+            "count": 6,
             "title": {
                 "en": "Graverobber",
-                "de": ""
+                "de": "Grabräuber"
             },
             "short": {
                 "en": "Steals the Pharaoh's Ankh to revive themselves.",
-                "de": ""
+                "de": "Stiehlt das Ankh des Pharaos, um sich wiederzubeleben."
             },
             "desc": {
-                "en": "The Graverobber works against the Pharaoh and can steal their Ankh, causing their own revival instead.",
-                "de": ""
+                "en": "The Graverobber works against the Pharaoh and can steal their Ankh, causing their own revival instead if placed before.",
+                "de": "Der Grabräuber arbeitet gegen den Pharao und kann dessen Ankh stehlen und stattdessen seine eigene Wiederbelebung bewirken wen dieses zuvor plaziert wurde."
+            }
+        },
+        "priest" : {
+            "enabled": false,
+            "count": 7,
+            "title": {
+                "en": "Priest",
+                "de": "Priester"
+            },
+            "short": {
+                "en": "Can mark a player as Innocentwith a Deagle, but dies when marking an opponent.",
+                "de": "Kann Spieler mit einer Deagle als Innocent markieren, stirbt aber bei einem gegnerischen Spieler."
+            },
+            "desc": {
+                "en": "TODO",
+                "de": "TODO"
             }
         },
         "shinigami": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Shinigami",
-                "de": ""
+                "de": "Shinigami"
             },
             "short": {
                 "en": "Respawns as a fast-moving figure with a list of traitors.",
-                "de": ""
+                "de": "Er wird als schnelle Figur mit einer Liste von Traitorn wiederbelebgt."
             },
             "desc": {
                 "en": "The Shinigami respawns as a fast-moving figure with a list of traitors. They gradually lose health over time and cannot communicate.",
-                "de": ""
+                "de": "Der Shinigami wird nach seinem Tod mit erhöhter Geschwindigkeit und einer Liste von Traitorn wiederbelebt. Sie verlieren mit der Zeit an Gesundheit und dürfen nicht mehr kommunizieren."
             }
         },
         "spectre": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Spectre",
-                "de": ""
+                "de": "Gespenst"
             },
             "short": {
                 "en": "Haunts their killer and revives if their killer dies.",
-                "de": ""
+                "de": "Sucht den Killer heim und respawnt bei dessen Tod."
             },
             "desc": {
-                "en": "When killed, the Spectre haunts their killer. If their attacker dies, the Spectre is revived.",
-                "de": ""
+                "en": "When killed, the Spectre haunts their killer, marking them with smoke. If their attacker dies, the Spectre is revived.",
+                "de": "Wenn er getötet wird, verfolgt das Gespenst seinen Mörder und markiert ihn mit Rauch. Wenn ihr Angreifer stirbt, wird das Gespenst wiederbelebt."
             }
         },
         "spy": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Spy",
-                "de": ""
+                "de": "Spion"
             },
             "short": {
-                "en": "Blends with the Traitors but doesn't know their identity.",
-                "de": ""
+                "en": "Infiltrates the Traitors but doesn't know their identity.",
+                "de": "Infiltriert die Traitor und sieht, wie einer von ihnen aussieht."
             },
             "desc": {
                 "en": "A Spy has a shop and can blend with the Traitors, but they don't know who the Traitors are, while the Traitors don't know the Spy's role.",
-                "de": ""
+                "de": "Ein Spion hat einen Shop und kann sich unter die Traitor mischen, aber er weiß nicht, wer die Traitor sind, während die Traitor die Rolle des Spions nicht kennen."
             }
         },
         "survivalist": {
             "enabled": true,
+            "count": 7,
             "title": {
                 "en": "Survivalist",
-                "de": ""
+                "de": "Überlebenskünstler"
             },
             "short": {
                 "en": "An enhanced Innocent with a configurable shop.",
-                "de": ""
+                "de": "Normaler Innocent mit einem Shop."
             },
             "desc": {
                 "en": "An enhanced Innocent with a configurable shop similar to the Detective’s.",
-                "de": ""
+                "de": "Ein verbesserter Innocent mit einem konfigurierbaren Shop ähnlich dem des Detective."
             }
         },
         "trapper": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Trapper",
-                "de": ""
+                "de": "Fallensteller"
             },
             "short": {
-                "en": "Detects traps and sees visual indicators when traps are used.",
-                "de": ""
+                "en": "Innocent which can use traitor traps.",
+                "de": "Darf als Innocent Traitorfallen verwenden."
             },
             "desc": {
                 "en": "The Trapper detects traps and sees visual indicators when traps are used. Other trap-users can also see when the Trapper uses a trap.",
-                "de": ""
+                "de": "Der Trapper erkennt Fallen und sieht visuelle Indikatoren, wenn Fallen verwendet werden. Andere Fallenbenutzer können ebenfalls sehen, wenn der Trapper eine Falle benutzt."
             }
         },
         "wrath": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Wrath",
-                "de": ""
+                "de": "Zorn"
             },
             "short": {
                 "en": "Turns into a Traitor if killed by an Innocent.",
-                "de": ""
+                "de": "Kehrt als Traitor zurück, wenn er von einem Innocent getötet wird."
             },
             "desc": {
                 "en": "If the Wrath is killed by an innocent, they become a Traitor, but if killed by anyone else, they die normally.",
-                "de": ""
+                "de": "Wenn der Zorn von einem Innocent getötet wird, wird er zum Traitor, aber wenn er von jemand anderem getötet wird, stirbt er normal."
             }
         }
     },
     "detective": {
         "sheriff": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Sheriff",
-                "de": ""
+                "de": "Sheriff"
             },
             "short": {
                 "en": "A Detective who can recruit deputies by shooting them.",
-                "de": ""
+                "de": "Kann einen anderen Spieler zum Deputy machen."
             },
             "desc": {
-                "en": "The Sheriff is a Detective with a DeputyDeagle to recruit a colleague by shooting them. If the Sheriff dies, the Deputy dies too.",
-                "de": ""
+                "en": "The Sheriff is a Detective with a Deputy-Deagle to recruit a colleague by shooting them. If the Sheriff dies, the Deputy dies too.",
+                "de": "Der Sheriff ist ein Detective mit einem Deputy-Deagle, mit der er einen Sellvertreter rekutieren kann. Wenn der Sheriff stirbt, stirbt auch der Sellvertreter."
             }
         },
         "deputy": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Deputy",
-                "de": ""
+                "de": "Stellvertreter"
             },
             "short": {
                 "en": "Assists the Sheriff after being recruited.",
-                "de": ""
+                "de": "Wird vom Sheriff ausgewählt und muss ihn unterstützen."
             },
             "desc": {
-                "en": "The Deputy joins the Sheriff's team and can be recruited with a shot from the Sheriff’s gun.",
-                "de": ""
+                "en": "The Deputy joins the Sheriff's team. He dies if the Sheriff dies.",
+                "de": "Der Sellvertreter schließt sich dem Team des Sheriffs an. Er stirbt zusammen mit dem Sheriff."
             }
         },
         "sniffer": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Sniffer",
-                "de": ""
+                "de": "Schnüffler"
             },
             "short": {
                 "en": "Tracks footprints and blood trails left by killers.",
-                "de": ""
+                "de": "Verfolgt Fußabdrücke und Blutspuren von Mördern mithilfe einer Lupe."
             },
             "desc": {
-                "en": "The Sniffer can see footsteps and blood left by killers, helping identify suspects.",
-                "de": ""
+                "en": "The Sniffer can see footsteps and blood left by killers using his magnifying glass, helping identify suspects.",
+                "de": "Der Sniffer kann mit seiner Lupen Fußspuren und Blutspuren von Mördern sehen und so Verdächtige identifizieren."
             }
         },
         "vigilante": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Vigilante",
-                "de": ""
+                "de": "Wächter"
             },
             "short": {
-                "en": "Gains a damage multiplier for killing Traitors.",
-                "de": ""
+                "en": "Gains a damage multiplier for killing Traitors and Innocent.",
+                "de": "Erhält einen Schadensmultiplikator für das Töten von Verrätern und Unschuldigen."
             },
             "desc": {
                 "en": "The Vigilante gains a damage multiplier by killing Traitors, but loses it when killing Innocents.",
-                "de": ""
+                "de": "Der Wächter erhält einen Schadensmultiplikator, wenn er Traitor tötet, verliert ihn aber, wenn er Innocents tötet."
             }
         }
     },
     "traitor": {
         "accomplice": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Accomplice",
-                "de": ""
+                "de": "Komplize"
             },
             "short": {
                 "en": "Works with Traitors but doesn't know their identities.",
-                "de": ""
+                "de": "Arbeitet mit Traitor zusammen, kennt deren Identität aber nicht."
             },
             "desc": {
                 "en": "The Accomplice works alongside the Traitor but doesn't know who they are. They can only buy one Traitor item and can't win alone.",
+                "de": "Der Komplize arbeitet mit dem Traitorn zusammen, weiß aber nicht, wer sie sind. Er kann nur einen Gegenstand Im Traitor Shop kaufen und kann alleine nicht gewinnen."
+            }
+        },
+        "blight": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Blight",
+                "de": "Pest"
+            },
+            "short": {
+                "en": "",
+                "de": "Wird er getötet, nimmt der Mörder Schaden bis zu 1HP, es sei denn, er heilt sich."
+            },
+            "desc": {
+                "en": "",
+                "de": ""
+            }
+        },
+        "defective" : {
+            "enabled": true,
+            "count": 10,
+            "title": {
+                "en": "Defective",
+                "de": "Defektiv"
+            },
+            "short": {
+                "en": "",
+                "de": "Ein Traitor, der wie ein Detective aussieht, aber nur von den Traitors als solchen erkannt wird."
+            },
+            "desc": {
+                "en": "",
                 "de": ""
             }
         },
         "executioner": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Executioner",
-                "de": ""
+                "de": "Scharfrichter"
             },
             "short": {
-                "en": "Targets specific players for extra damage.",
-                "de": ""
+                "en": "Does additional damage to a predetermined target and less to the remaining players.",
+                "de": "Macht zusätzlichen Schaden auf einem vorbestimmten Ziel und weniger bei den restlichen Spielern."
             },
             "desc": {
                 "en": "The Executioner has a target and deals extra damage to them. Killing non-targets results in a delay before a new target is assigned.",
@@ -307,53 +375,105 @@
         },
         "glutton": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Glutton",
-                "de": ""
+                "de": "Vielfraß"
             },
             "short": {
                 "en": "Uses hunger to power their weapon and heal.",
-                "de": ""
+                "de": "Muss Leichen essen, um seinen Hunger zu stillen. Wird ansonsten zu Ravenous."
             },
             "desc": {
                 "en": "The Glutton uses hunger to power their weapon, Devour, and can heal by eating corpses. If their hunger reaches zero, they transform into the Ravenous.",
-                "de": ""
+                "de": "Der Vielfraß nutzt den Hunger als Kraftquelle für seine Waffe, Devour, und kann sich durch das Essen von Leichen heilen. Get sein Hunger auf Null, verwandelt er sich in den Ravenous."
+            }
+        },
+        "graverobber":{
+            "enabled": false,
+            "count": 6,
+            "title": {
+                "en": "Graverobber",
+                "de": "Grabräuber"
+            },
+            "short": {
+                "en": "Steals the Pharaoh's Ankh to revive themselves.",
+                "de": "Stiehlt das Ankh des Pharaos, um sich wiederzubeleben."
+            },
+            "desc": {
+                "en": "The Graverobber is a transformed Traitor and spawns, once the Pharaoh places their Arkh. They work against the Pharaoh and can steal their Ankh, causing their own revival instead if placed before.",
+                "de": "Dar Grabräuer ist ein transformierter Traitor und wird vom Pharao durch das plazieren des Arkh gespawnt. Der Grabräuber arbeitet gegen den Pharao und kann dessen Ankh stehlen und stattdessen seine eigene Wiederbelebung bewirken, wen dieses zuvor plaziert wurde."
             }
         },
         "hitman": {
             "enabled": true,
+            "count": 6,
             "title": {
                 "en": "Hitman",
-                "de": ""
+                "de": "Auftragskiller"
             },
             "short": {
-                "en": "Must kill assigned targets to earn rewards.",
-                "de": ""
+                "en": "Must kill assigned targets to earn credits.",
+                "de": "Muss vorbestimmte Ziele ausschalten, um Credits zu bekommen."
             },
             "desc": {
                 "en": "The Hitman needs to kill their assigned target to earn credits. If the target dies another way, no reward is given.",
+                "de": "Der Auftragskiller muss das ihm zugewiesene Ziel töten, um Credits zu verdienen. Stirbt das Ziel auf andere Weise, gibt es keine Belohnung."
+            }
+        },
+        "mesmerist": {
+            "enabled": false,
+            "count": 6,
+            "title": {
+                "en": "Mesmerist",
+                "de": "Hypnotiseur"
+            },
+            "short": {
+                "en": "Can revive dead players as Thralls with a defibrillator.",
+                "de": "Kann mit einem Defibrillator Tote zu Thralls wiederbeleben."
+            },
+            "desc": {
+                "en": "",
+                "de": ""
+            }
+        },
+        "thrall" : {
+            "enabled": false,
+            "count": 6,
+            "title": {
+                "en": "Thrall",
+                "de": "Sklave"
+            },
+            "short": {
+                "en": "Revived by the Mesmerist and must obey them.",
+                "de": "Wird vom Hypnotiseur wiederbelebt und muss ihm gehorchen."
+            },
+            "desc": {
+                "en": "",
                 "de": ""
             }
         },
         "vampire": {
-            "enabled": true,
+            "enabled": false,
+            "count": 10,
             "title": {
                 "en": "Vampire",
-                "de": ""
+                "de": "Vampir"
             },
             "short": {
-                "en": "Kills to avoid Bloodlust, which damages them.",
-                "de": ""
+                "en": "Kills to avoid Bloodlust, which damages them. Can transforms into a lifestealing bat after a kill.",
+                "de": "Tötet, um Blutrausch zu vermeiden, der ihn schädigt. Kann sich nach einem Kill in eine lebensraubende Fledermaus verwandeln."
             },
             "desc": {
                 "en": "The Vampire must kill a player every minute to avoid Bloodlust, which damages them. While in Bloodlust, they heal for a portion of the damage they deal.",
-                "de": ""
+                "de": "Der Vampir muss jede Minute einen Spieler töten, um den Blutrausch zu vermeiden, der ihn schädigt. Während er im Blutrausch ist, heilt er sich für einen Teil des Schadens, den er verursacht."
             }
         }
     },
     "killer": {
         "infested": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Infested",
                 "de": ""
@@ -369,6 +489,7 @@
         },
         "necromancer": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Necromancer",
                 "de": ""
@@ -384,6 +505,7 @@
         },
         "serial_killer": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Serial Killer",
                 "de": ""
@@ -399,6 +521,7 @@
         },
         "ravenous": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Ravenous",
                 "de": ""
@@ -414,6 +537,7 @@
         },
         "restless": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Restless",
                 "de": ""
@@ -431,6 +555,7 @@
     "neutral": {
         "bodyguard": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Bodyguard",
                 "de": ""
@@ -446,6 +571,7 @@
         },
         "jester": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Jester",
                 "de": ""
@@ -461,6 +587,7 @@
         },
         "marker": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Marker",
                 "de": ""
@@ -476,6 +603,7 @@
         },
         "pirate": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Pirate",
                 "de": ""
@@ -491,6 +619,7 @@
         },
         "unknown": {
             "enabled": true,
+            "count": 8,
             "title": {
                 "en": "Unknown",
                 "de": ""
@@ -515,7 +644,7 @@
     "categories" : {
         "innocent": {
             "en": "Innocent",
-            "de": "Unschuldige"
+            "de": "Innocent"
         },
         "detective": {
             "en": "Detective",
@@ -523,7 +652,7 @@
         },
         "traitor": {
             "en": "Traitor",
-            "de": "Verräter"
+            "de": "Traitor"
         },
         "killer": {
             "en": "Neutral Killer",
