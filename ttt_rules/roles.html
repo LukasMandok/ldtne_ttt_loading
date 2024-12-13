@@ -151,11 +151,10 @@
         function createRoleCard(role, roleId, lang) {
             return `
                 <div class="col-md-4">
-                    <div class="role-card ${!role.enabled ? 'disabled' : ''}">
-                        <h5>${role.title[lang]} 
-                            <i class="expand-icon bi bi-caret-down-fill" 
-                               data-bs-toggle="collapse" 
-                               data-bs-target="#description-${roleId}"></i>
+                    <div class="role-card ${!role.enabled ? 'disabled' : ''}" data-bs-toggle="collapse" data-bs-target="#description-${roleId}">
+                        <h5>
+                            ${role.title[lang]} 
+                            <i class="expand-icon bi bi-caret-down-fill"></i>
                         </h5>
                         <div id="description-${roleId}" class="collapse role-description">
                             <p>${role.desc[lang]}</p>
@@ -204,15 +203,15 @@
             });
 
             // Add event listeners to track expanded state
-            document.querySelectorAll('.expand-icon').forEach(icon => {
-                icon.addEventListener('click', (event) => {
-                    const targetId = event.target.getAttribute('data-bs-target').substring(1);
+            document.querySelectorAll('.role-card').forEach(card => {
+                card.addEventListener('click', (event) => {
+                    const targetId = card.getAttribute('data-bs-target').substring(1);
                     if (expandedCards.has(targetId)) {
                         expandedCards.delete(targetId);
-                        event.target.classList.remove('rotate');
+                        card.querySelector('.expand-icon').classList.remove('rotate');
                     } else {
                         expandedCards.add(targetId);
-                        event.target.classList.add('rotate');
+                        card.querySelector('.expand-icon').classList.add('rotate');
                     }
                 });
             });
