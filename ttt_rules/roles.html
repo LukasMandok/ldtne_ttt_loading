@@ -84,9 +84,16 @@
         .original-title {
             grid-column: 1 / -1;
             grid-row: 2;
-            color: #888;
-            font-size: 0.8em;
-            margin-top: 0.1rem;
+            color: #666;
+            font-size: 0.85em;
+            margin-left: 0.5em;
+            /* white-space: nowrap; */
+        }
+
+        .original-title::before {
+            content: "•";
+            margin-right: 0.5em;
+            color: #444;
         }
 
         .player-count-box {
@@ -233,7 +240,7 @@
         function createRoleCard(role, roleId, lang) {
             const titleText = lang === 'en' 
                 ? `<span class="title-text">${role.title[lang]}</span>`
-                : `<span class="title-text">${role.title[lang]}</span><span class="original-title">(${role.title['en']})</span>`;
+                : `<span class="title-text">${role.title[lang]}<span class="original-title">${role.title['en']}</span></span>`;
                 
             const isUnavailable = role.count > currentPlayerCount;
 
