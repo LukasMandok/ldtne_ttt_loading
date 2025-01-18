@@ -106,36 +106,46 @@
             "combination": ["unknown", "necromancer", "priest"]
         },
         "pharaoh": {
-            "enabled": false,
+            "enabled": true,
             "count": 6,
             "title": {
                 "en": "Pharaoh",
                 "de": "Pharao"
             },
             "short": {
-                "en": "Places an Ankh to revive themselves or create a Graverobber.",
-                "de": "Plaziert ein Ankh, um sich selbst wiederzubeleben zu können und erschafft einen Grabräuber."
+                "en": "Places ankh for revival and creates a Graverobber adversary.",
+                "de": "Platziert Ankh zur Wiederbelebung und erschafft einen gengerischen Grabräuber."
             },
             "desc": {
-                "en": "The Pharaoh places an Ankh that converts a random Traitor into a Graverobber. If the Pharaoh dies, they can be revived by the Ankh unless stolen by the Graverobber.",
-                "de": "Der Pharao platziert ein Ankh, das einen zufälligen Traitor in einen Grabräuber verwandelt. Wenn der Pharao stirbt, kann er durch das Ankh wiederbelebt werden, es sei denn, es wurde vom Grabräuber gestohlen."
-            }
+                "en": "Places an ankh that heals nearby and revives them on death. Placing converts random traitor to Graverobber who can steal the ankh.",
+                "de": "Platziert ein Ankh, das in der Nähe heilt und bei Tod wiederbelebt. Das Platzieren verwandelt einen zufälligen Traitor in einen Grabräuber, der das Ankh stehlen kann."
+            },
+            "long": {
+                "en": "The Pharaoh places an ankh that heals himself if close and revives them upon death. When placed, it converts a random traitor into a Graverobber who can steal the ankh to gain its revival power instead. The ankh shows its owner's team through colored runes and can be destroyed by any player.",
+                "de": "Der Pharao platziert ein Ankh, das ihn selbst heilt und ihn beim Tod wiederbelebt. Beim Platzieren verwandelt es einen zufälligen Traitor in einen Grabräuber, der das Ankh stehlen kann, um stattdessen dessen Wiederbelebungskraft zu erhalten. Das Ankh zeigt das Team seines Besitzers durch farbige Runen an und kann von jedem Spieler zerstört werden."
+            },
+            "combination": ["serial_killer", "sheriff", "amnesiac"]
         },
         "priest" : {
-            "enabled": false,
+            "enabled": true,
             "count": 7,
             "title": {
                 "en": "Priest",
                 "de": "Priester"
             },
             "short": {
-                "en": "Can mark a player as Innocentwith a Deagle, but dies when marking an opponent.",
-                "de": "Kann Spieler mit einer Deagle als Innocent markieren, stirbt aber bei einem gegnerischen Spieler."
+                "en": "Creates a brotherhood of Innocents using his holy deagle.",
+                "de": "Erschafft eine Bruderschaft der Innocents mit seiner heiliger Deagle."
             },
             "desc": {
-                "en": "TODO",
-                "de": "TODO"
-            }
+                "en": "Uses his holy deagle to recruit Innocent players into brotherhood. Cannot recruit detectives/sniffers. Dies if shooting evil roles.",
+                "de": "Er nutzt seine heilige Deagle, um Innocent Spieler in die Bruderschaft aufzunehmen. Kann keine Detectives/Schnüffler rekrutieren. Stirbt, wenn er böse Rollen anschießt."
+            },
+            "long": {
+                "en": "The Priest uses a holy deagle to create a brotherhood of innocent players who can see each other in the scoreboard. Cannot recruit Detectives, Infected or Sidekicks but will deal damage to them. Shooting evil roles kills the Priest, while shooting a marker marks the entire brotherhood. If converted to infected/zombie/sidekick, all brotherhood members are also converted. If single Members are converted they stay in the Brotherhood.",
+                "de": "Der Priester verwendet eine heilige Deagle, um eine Bruderschaft unschuldiger Spieler zu erschaffen, die sich gegenseitig im Scoreboard sehen können. Kann keine Detectives, Infected or Sidekicks rekrutieren und macht denen stattdessen Schaden. Das Schießen auf böse Rollen tötet den Priester, während das Schießen auf einen Marker die gesamte Bruderschaft markiert. Bei Konvertierung zu Infected/Zombie/Sidekick werden alle Bruderschaftsmitglieder ebenfalls konvertiert. Wenn einzelne Mitglieder konvertiert werden, bleiben sie in der Bruderschaft."
+            },
+            "combination": ["infected", "jackal", "unknown", "marker"]
         },
         "shinigami": {
             "enabled": true,
@@ -291,13 +301,18 @@
                 "de": "Sheriff"
             },
             "short": {
-                "en": "A Detective who can recruit deputies by shooting them.",
-                "de": "Kann einen anderen Spieler zum Deputy machen."
+                "en": "Detective who can recruit a Deputy using a special deagle.",
+                "de": "Kann mit seiner Deagle einen anderen Spieler zum Deputy machen."
             },
             "desc": {
                 "en": "The Sheriff is a Detective with a Deputy-Deagle to recruit a colleague by shooting them. If the Sheriff dies, the Deputy dies too.",
                 "de": "Der Sheriff ist ein Detective mit einem Deputy-Deagle, mit der er einen Sellvertreter rekutieren kann. Wenn der Sheriff stirbt, stirbt auch der Sellvertreter."
-            }
+            },
+            "long": {
+                "en": "The Sheriff is a special Detective with the power to recruit one Deputy using a special deagle. The shot player joins the Sheriff's team regardless of their previous role. However, this creates a deep bond - if the Sheriff dies, their Deputy will also perish automatically.",
+                "de": "Der Sheriff ist ein Detective mit der Fähigkeit, einen Sellvertreter mit einer seiner Deagle zu rekrutieren. Der angeschossene Spieler schließt sich dem Team des Sheriffs an, unabhängig von seiner vorherigen Rolle. Dies schafft jedoch eine tiefe Bindung - wenn der Sheriff stirbt, wird auch sein Sellvertreter automatisch sterben."
+            },
+            "combination": ["jackal", "priest", "spy"]
         },
         "deputy": {
             "enabled": true,
@@ -313,10 +328,14 @@
             "desc": {
                 "en": "The Deputy joins the Sheriff's team. He dies if the Sheriff dies.",
                 "de": "Der Sellvertreter schließt sich dem Team des Sheriffs an. Er stirbt zusammen mit dem Sheriff."
+            },
+            "long": {
+                "en": "The Deputy is created when the Sheriff converts a player with their special deagle. They join the Sheriff's team regardless of their previous role, but their life becomes bound to the Sheriff - if the Sheriff dies, the Deputy dies as well.",
+                "de": "Der Deputy wird vom Sheriff erschaffen, indem er einen Spieler mit seiner Deagle konvertiert. Er schließt sich dem Team des Sheriffs an, unabhängig von seiner vorherigen Rolle, aber sein Leben wird an den Sheriff gebunden - wenn der Sheriff stirbt, stirbt auch der Deputy."
             }
         },
         "sniffer": {
-            "enabled": true,
+            "enabled": false,
             "count": 8,
             "title": {
                 "en": "Sniffer",
@@ -329,6 +348,10 @@
             "desc": {
                 "en": "The Sniffer can see footsteps and blood left by killers using his magnifying glass, helping identify suspects.",
                 "de": "Der Sniffer kann mit seiner Lupen Fußspuren und Blutspuren von Mördern sehen und so Verdächtige identifizieren."
+            },
+            "long": {
+                "en": "The Sniffer is a Detective role with a special magnifying glass that reveals footprints of all players and blood trails left by killers. This tracking ability helps identify suspicious movement patterns and recent kill locations.",
+                "de": "Der Sniffer ist ein Detective mit einer speziellen Lupe, die Fußabdrücke aller Spieler und Blutspuren von Mördern aufdeckt. Diese Fähigkeit hilft dabei, verdächtige Bewegungsmuster und kürzliche Tatorte zu identifizieren."
             }
         },
         "vigilante": {
@@ -477,19 +500,23 @@
             }
         },
         "glutton": {
-            "enabled": true,
+            "enabled": false,
             "count": 6,
             "title": {
                 "en": "Glutton",
                 "de": "Vielfraß"
             },
             "short": {
-                "en": "Uses hunger to power their weapon and heal.",
-                "de": "Muss Leichen essen, um seinen Hunger zu stillen. Wird ansonsten zu Ravenous."
+                "en": "Uses hunger to power their weapon and heal. Can transform into Ravenous.",
+                "de": "Nutzt Hunger als Kraftquelle für Devour. Kann sich in Ravenous verwandeln."
             },
             "desc": {
-                "en": "The Glutton uses hunger to power their weapon, Devour, and can heal by eating corpses. If their hunger reaches zero, they transform into the Ravenous.",
-                "de": "Der Vielfraß nutzt den Hunger als Kraftquelle für seine Waffe, Devour, und kann sich durch das Essen von Leichen heilen. Get sein Hunger auf Null, verwandelt er sich in den Ravenous."
+                "en": "Has a decreasing hunger bar powering their Devour weapon. Can eat corpses to restore health and hunger. Transforms into Ravenous at zero hunger.",
+                "de": "Hat eine abnehmende Hungerleiste, die ihre Devour-Waffe antreibt. Kann Leichen essen um Gesundheit und Hunger wiederherzustellen. Verwandelt sich bei null Hunger in Ravenous."
+            },
+            "long": {
+                "en": "The Glutton's power comes from their hunger, which slowly decreases over time, while granting additional speed. Their Devour weapon's primary attack is bite, dealing increasing damage with hunger. The secondary lets you consumes corpses faster based on hunger level. Eating corpses or dealing damage restores health and hunger. If hunger reaches zero, they transform into the Ravenous, leaving the Traitor team to hunt everyone.",
+                "de": "Die Kraft des Glutton kommt von seinem Hunger, der langsam abnimmt, gleichzeitig aber zusätzliche Geschwindigkeit gewährt. Der primäre Angriff seiner Devour-Waffe ist der Biss, der mit dem Hunger zunehmenden Schaden verursacht. Der sekundäre Angriff lässt dich Leichen basierend auf dem Hungerlevel schneller konsumieren. Das Essen von Leichen oder das Zufügen von Schaden stellt Gesundheit und Hunger wieder her. Wenn der Hunger null erreicht, verwandelt er sich in den Ravenous der nun alle töten muss."
             }
         },
         "graverobber":{
@@ -537,12 +564,16 @@
                 "de": "Hypnotiseur"
             },
             "short": {
-                "en": "Can revive dead players as Thralls with a defibrillator.",
-                "de": "Kann mit einem Defibrillator Tote zu Thralls wiederbeleben."
+                "en": "Can revive dead players as allied Thralls with a defibrillator.",
+                "de": "Kann mit einem Defibrillator Tote zu verbündeten Thralls wiederbeleben."
             },
             "desc": {
-                "en": "",
-                "de": ""
+                "en": "A Traitor who can revive dead bodies as brainwashed Thrall allies using a special defibrillator.",
+                "de": "Ein Traitor, der tote Körper mit einem speziellen Defibrillator als gehirngewaschene Thrall-Verbündete wiederbeleben kann."
+            },
+            "long": {
+                "en": "The Mesmerist is a Trai  tor equipped with a special defibrillator that can convert dead players into loyal Thralls. The defibrillator's uses are configurable through server settings. Successfully revived players become Thralls who fight for the Traitor team. Failed revival attempts trigger a cooldown period.",
+                "de": "Der Mesmerist ist ein Traitor, ausgestattet mit einem speziellen Defibrillator, der tote Spieler in loyale Thralls verwandeln kann. Die Anzahl der Verwendungen ist über Servereinstellungen konfigurierbar. Erfolgreich wiederbelebte Spieler werden zu Thralls, die für das Traitor-Team kämpfen."
             }
         },
         "thrall" : {
@@ -557,8 +588,12 @@
                 "de": "Wird vom Hypnotiseur wiederbelebt und muss ihm gehorchen."
             },
             "desc": {
-                "en": "",
-                "de": ""
+                "en": "Dead player revived and brainwashed by Mesmerist's defibrillator. Fights for Traitor team but lacks shop access.",
+                "de": "Gesorbener Spieler, wiederbelebt und gehirngewaschen durch den Defibrillator des Mesmerist. Kämpft für das Traitor Team."
+            },
+            "long": {
+                "en": "Thralls are deceased  players revived by the Mesmerist's special defibrillator. They join the Traitor team but cannot access the shop. Their loyalty is permanently bound to the Traitor cause, regardless of their original role.",
+                "de": "Thralls sind verstorbene Spieler, die durch den speziellen Defibrillator des Mesmerist wiederbelebt wurden. Sie schließen sich dem Traitor-Team an, haben aber keinen Zugang zum Shop. ."
             }
         },
         "vampire": {
@@ -569,13 +604,18 @@
                 "de": "Vampir"
             },
             "short": {
-                "en": "Kills to avoid Bloodlust, which damages them. Can transforms into a lifestealing bat after a kill.",
-                "de": "Tötet, um Blutrausch zu vermeiden, der ihn schädigt. Kann sich nach einem Kill in eine lebensraubende Fledermaus verwandeln."
+                "en": "Must kill regularly to avoid damaging bloodlust. Can transform into bat.",
+                "de": "Muss regelmäßig töten, um schädlichen Blutrausch zu vermeiden. Kann sich in Fledermaus verwandeln."
             },
             "desc": {
-                "en": "The Vampire must kill a player every minute to avoid Bloodlust, which damages them. While in Bloodlust, they heal for a portion of the damage they deal.",
-                "de": "Der Vampir muss jede Minute einen Spieler töten, um den Blutrausch zu vermeiden, der ihn schädigt. Während er im Blutrausch ist, heilt er sich für einen Teil des Schadens, den er verursacht."
-            }
+                "en": "Traitor who must kill every minute to avoid bloodlust damage. Heals from damage dealt during bloodlust. Can transform into bat but triggers bloodlust.",
+                "de": "Traitor, der jede Minute töten muss, um Blutrausch-Schaden zu vermeiden. Heilt sich durch verursachten Schaden während des Blutrausches. Kann sich in Fledermaus verwandeln, was aber Blutrausch auslöst."
+            },
+            "long": {
+                "en": "The Vampire must kill at least one player every minute or enter bloodlust otherwise, taking damage every 2 seconds. During bloodlust, they heal for 50% of damage dealt to others. Can transform into a bat which triggers bloodlust as well. Requires regular kills to maintain effectiveness.",
+                "de": "Der Vampir muss mindestens einen Spieler pro Minute töten oder verfällt ansonsten in Blutrausch, wobei er alle 2 Sekunden Schaden erleidet. Während des Blutrausches heilt er sich um 50% des verursachten Schadens. Er Kann sich in eine Fledermaus verwandeln, was aber ebenfalls Blutrausch auslöst."
+            },
+            "combination": ["hitman", "necromancer", "infected"]
         }
     },
     "killer": {
@@ -667,16 +707,21 @@
             "count": 8,
             "title": {
                 "en": "Necromancer",
-                "de": ""
+                "de": "Totenbeschwörer"
             },
             "short": {
                 "en": "Revives bodies as zombies to fight for them.",
-                "de": ""
+                "de": "Belebt Leichen als Zombies wieder, die für ihn kämpfen."
             },
             "desc": {
-                "en": "The Necromancer uses a defibrillator to revive dead bodies as zombies that fight for them. Zombies are slow and have limited ammo.",
-                "de": ""
-            }
+                "en": "The Necromancer uses a defibrillator to revive dead bodies as zombies that fight for them. Zombies are slow and have limited ammo and die once used up.",
+                "de": "Der Necromancer verwendet einen Defibrillator, um tote Körper als Zombies wiederzubeleben, die für ihn kämpfen. Zombies sind langsam und haben begrenzte Munition und sterben, sobald diese aufgebraucht ist."
+            },
+            "long": {
+                "en": "The Necromancer has access to a shop and a special defibrillator with uses based on player count. Can revive corpses as zombie that fight for him with limited-ammo deagles. Zombies are slower than normal players and die when out of ammo.",
+                "de": "Der Necromancer hat Zugang zu einem Shop und einem speziellen Defibrillator den er entsprechend der Spieleranzahl verwenden kann. Er kann Leichen als Zombie wiederbeleben, die mit Deagles mit begrenzter Munition für ihn kämpfen. Zombies sind langsamer als normale Spieler und sterben, wenn die Munition aufgebraucht ist."
+            },
+            "combination": ["jackal", "pirate", "marker"]
         },
         "serial_killer": {
             "enabled": true,
@@ -703,15 +748,19 @@
             "count": 8,
             "title": {
                 "en": "Ravenous",
-                "de": ""
+                "de": "Ausgehungerte"
             },
             "short": {
-                "en": "Must kill everyone to win.",
-                "de": ""
+                "en": "Transformed Glutton who must kill everyone to win.",
+                "de": "Transformierter Glutton, der alle tötten muss, um zu gewinnen."
             },
             "desc": {
-                "en": "The Ravenous must kill everyone else to win, losing all weapons except for their Devour and emitting a blood-red smoke trail.",
-                "de": ""
+                "en": "Former Glutton transformed by starvation. Loses all weapons except Devour and emits blood-red smoke. Must eliminate everyone to win.",
+                "de": "Ehemaliger Glutton, der durch Verhungern transformiert wurde. Verliert alle Waffen außer Devour und stößt blutroten Rauch aus. Muss alle töten, um zu gewinnen."
+            },
+            "long": {
+                "en": "The Ravenous is the final form of a Glutton who reached zero hunger. They leave the Traitor team and must kill everyone to win. They lose all weapons except their Devour ability and are not allowed to pick up new weapons. They also emit a distinctive blood-red smoke trail.",
+                "de": "Der Ravenous ist die finale Form eines Glutton, der null Hunger erreicht hat. Er verlässt das Traitor-Team und muss nun alle töten, um zu gewinnen. Er verliert alle Waffen außer seiner Devour-Fähigkeit und darf keine neuen Waffen aufheben. Er stößt außerdem eine charakteristische blutrote Rauchspur aus."
             }
         },
         "restless": {
@@ -869,12 +918,17 @@
             },
             "short": {
                 "en": "Serves the holder of their contract.",
-                "de": ""
+                "de": "Dienen dem Besitzer ihres Vertrags."
             },
             "desc": {
                 "en": "The Pirate serves the player holding their contract. If the current master dies, the contract is dropped, and the Pirates switch allegiance to the new holder.",
-                "de": ""
-            }
+                "de": "Der Pirat dient dem Spieler, der seinen Vertrag hält. Wenn der aktuelle Meister stirbt, wird der Vertrag fallen gelassen und die Piraten wechseln die Zugehörigkeit zum neuen Besitzer."
+            },
+            "long": {
+                "en": "Pirates are bound to whoever holds their Contract item. The Captain can throw the Contract to new masters, making all Pirates join that player's team. If the master dies, the Contract drops and can be claimed by a new master. If the Captain dies, a new Captain is chosen who can seek a different master.",
+                "de": "Piraten sind an denjenigen gebunden, der ihren Vertrag hält. Der Kapitän kann den Vertrag einem neuen Meister zuwerfen, wodurch alle Piraten dem Team dieses Spielers beitreten. Wenn der Meister stirbt, wird der Vertrag fallengelassen und kann von einem neuen Meister beansprucht werden. Wenn der Kapitän stirbt, wird ein neuer Kapitän gewählt, der sich einen anderen Meister suchen kann."
+            },
+            "combination": ["jester", "spy", "jackal"]
         },
         "unknown": {
             "enabled": true,
