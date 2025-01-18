@@ -54,20 +54,43 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        .role-card.unavailable {
+            color: #666;
+            background-color: #2a2a2a;
+        }
+
         .role-card.disabled {
-            color: #aaa;
-            background-color: #444;
+            color: #666;
+            background-color: #1f1616;
         }
 
         .role-card h5 {
             margin-bottom: 0.5rem;
+            display: grid;
+            grid-template-columns: 1fr 24px;  /* Fixed width for icon */
+            gap: 0.5rem;
+        }
+
+        .title-text {
+            grid-column: 1;
+            grid-row: 1;
+            overflow-wrap: break-word;
+        }
+
+        .original-title {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            color: #888;
+            font-size: 0.9em;
         }
 
         .expand-icon {
-            float: right;
+            grid-column: 2;
+            grid-row: 1;
             cursor: pointer;
             color: #aaa;
-            transition: transfomr 0.3s ease;
+            transition: transform 0.3s ease;
+            justify-self: end;
         }
 
         .expand-icon.rotate {
@@ -114,6 +137,29 @@
             color: #bbb;
         }
 
+        .player-count-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #333;
+            border-radius: 0.25rem;
+            padding: 0 0.5rem;
+        }
+
+        .player-count-label {
+            color: #bbb;
+            white-space: nowrap;
+            font-size: 0.9em;
+        }
+
+        #playerCount {
+            width: 50px;  /* Reduced from 80px */
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.375rem;
+        }
+
     </style>
 </head>
 
@@ -123,6 +169,21 @@
         <h1 class="text-center" id="pageTitle">TTT Custom Roles</h1>
         <div class="input-group mb-3">
             <input type="text" id="searchBar" class="form-control" placeholder="Search roles...">
+            <div class="player-count-wrapper">
+                <label for="playerCount" class="player-count-label">Players:</label>
+                <select class="form-select" id="playerCount" aria-label="Player count">
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10" selected>10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
         </div>
         <!-- Role Groups -->
         <div class="role-group" id="roleContainer"></div>
@@ -147,13 +208,21 @@
         let currentLang = 'en';
         let roleData = {};
         let expandedCards = new Set();
+        let currentPlayerCount = 10;
 
         function createRoleCard(role, roleId, lang) {
+            const titleText = lang === 'en' 
+                ? `<span class="title-text">${role.title[lang]}</span>`
+                : `<span class="title-text">${role.title[lang]}</span><span class="original-title">(${role.title['en']})</span>`;
+                
+            const isUnavailable = role.count > currentPlayerCount;
+
             return `
                 <div class="col-md-4">
-                    <div class="role-card ${!role.enabled ? 'disabled' : ''}" data-bs-toggle="collapse" data-bs-target="#description-${roleId}">
+                    <div class="role-card ${!role.enabled ? 'disabled' : ''} ${isUnavailable ? 'unavailable' : ''}" 
+                        data-bs-toggle="collapse" data-bs-target="#description-${roleId}">
                         <h5>
-                            ${role.title[lang]} 
+                            ${titleText}
                             <i class="expand-icon bi bi-caret-down-fill"></i>
                         </h5>
                         <div id="description-${roleId}" class="collapse role-description">
@@ -171,11 +240,18 @@
                 const roles = data.roles[category];
                 if (!roles) return '';
     
-                const filteredRoles = filter ? Object.entries(roles).filter(([roleId, role]) => {
-                    const titleMatches = Object.values(role.title).some(title => title.toLowerCase().includes(filter));
-                    const descMatches = Object.values(role.desc).some(desc => desc.toLowerCase().includes(filter));
-                    return titleMatches || descMatches;
-                }) : Object.entries(roles);
+                const filteredRoles = Object.entries(roles)
+                    // First filter out disabled roles
+                    .filter(([_, role]) => role.enabled)
+                    // Then apply search filter if exists
+                    .filter(([roleId, role]) => {
+                        if (!filter) return true;
+                        const titleMatches = Object.values(role.title).some(title => 
+                            title.toLowerCase().includes(filter));
+                        const descMatches = Object.values(role.desc).some(desc => 
+                            desc.toLowerCase().includes(filter));
+                        return titleMatches || descMatches;
+                    });
 
                 if (filteredRoles.length === 0) return '';
 
@@ -236,7 +312,12 @@
             const filter = document.getElementById('searchBar').value.toLowerCase();
             renderRoles(rolesData, currentLang, filter);
         });
-            
+
+        document.getElementById('playerCount').addEventListener('change', (event) => {
+            currentPlayerCount = parseInt(event.target.value);
+            renderRoles(rolesData, currentLang);
+        });
+                    
         // Add this function to detect URL parameters
         function getUrlParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -247,9 +328,16 @@
         async function initialize() {
             // Check URL for language parameter (e.g., ?lang=de)
             const urlLang = getUrlParameter('lang');
+            const urlPlayers = getUrlParameter('players');
+            
             if (urlLang && ['en', 'de'].includes(urlLang.toLowerCase())) {
                 currentLang = urlLang.toLowerCase();
                 document.documentElement.lang = currentLang;
+            }
+
+            if (urlPlayers && parseInt(urlPlayers) >= 3 && parseInt(urlPlayers) <= 12) {
+                currentPlayerCount = parseInt(urlPlayers);
+                document.getElementById('playerCount').value = currentPlayerCount;
             }
 
             rolesData = await loadRoles();
