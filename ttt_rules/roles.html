@@ -74,6 +74,10 @@
             min-height: 24px;
         }
 
+        .role-card h5.title-wide  {
+            grid-template-columns: auto 1fr 24px 24px;
+        }
+
         .title-text {
             grid-column: 1;
             grid-row: 1;
@@ -101,6 +105,19 @@
             color: #444;
         }
 
+        /* .title-wide  {
+            display: flex !important;
+            gap: 0.5em;
+            align-items: baseline;
+        } */
+
+        .title-wide .original-title {
+            grid-column: 2 !important;
+            grid-row: 1 !important;
+            position: absolute;
+            padding-left: 1em;
+        }
+
         .player-count-box {
             grid-column: 2;
             grid-row: 1;
@@ -116,6 +133,10 @@
             align-self: center;
         }
 
+        .title-wide .player-count-box {
+            grid-column: 3 !important;
+        }
+
         .expand-icon {
             grid-column: 3;
             grid-row: 1;
@@ -123,6 +144,10 @@
             color: #aaa;
             transition: transform 0.3s ease;
             justify-self: end;
+        }
+
+        .title-wide .expand-icon {
+            grid-column: 4 !important;
         }
 
         .expand-icon.rotate {
@@ -265,7 +290,24 @@
                     </div>
                 </div>`;
         }
-    
+
+        function observeRoleCards() {
+            const resizeObserver = new ResizeObserver(entries => {
+                for (const entry of entries) {
+                    const h5Element = entry.target.querySelector('h5');
+                    if (entry.contentRect.width > 300) {
+                        h5Element?.classList.add('title-wide');
+                    } else {
+                        h5Element?.classList.remove('title-wide');
+                    }
+                }
+            });
+
+            document.querySelectorAll('.role-card').forEach(card => {
+                resizeObserver.observe(card);
+            });
+        }
+
         function renderRoles(data, lang, filter = '') {
             const container = document.getElementById('roleContainer');
             document.getElementById('pageTitle').textContent = data.ui.pageTitle[lang];
@@ -311,6 +353,8 @@
                     }
                 }
             });
+
+            observeRoleCards();
 
             // Add event listeners to track expanded state
             document.querySelectorAll('.role-card').forEach(card => {
