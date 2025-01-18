@@ -533,6 +533,10 @@
             "desc": {
                 "en": "The Graverobber is a transformed Traitor and spawns, once the Pharaoh places their Arkh. They work against the Pharaoh and can steal their Ankh, causing their own revival instead if placed before.",
                 "de": "Dar Grabräuer ist ein transformierter Traitor und wird vom Pharao durch das plazieren des Arkh gespawnt. Der Grabräuber arbeitet gegen den Pharao und kann dessen Ankh stehlen und stattdessen seine eigene Wiederbelebung bewirken, wen dieses zuvor plaziert wurde."
+            },
+            "long": {
+                "en": "The Graverobber is created when the Pharaoh places their Ankh, transforming a random Traitor. They can steal the Ankh to gain its revival and healing powers instead of the Pharaoh. The Ankh's colored runes reveal its current owner's team alignment.",
+                "de": "Der Grabräuber entsteht, wenn der Pharao sein Ankh platziert und dabei einen zufälligen Traitor transformiert. Er kann das Ankh stehlen, um dessen Wiederbelebungs- und Heilungskräfte anstelle des Pharaos zu erhalten. Die farbigen Runen des Ankh zeigen die Teamzugehörigkeit des aktuellen Besitzers."
             }
         },
         "hitman": {
