@@ -105,6 +105,26 @@
             },
             "combination": ["unknown", "necromancer", "priest"]
         },
+        "paranoid": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Paranoid",
+                "de": "Paranoid"
+            },
+            "short": {
+                "en": "Alerts everyone of their death and body location.",
+                "de": "Alarmiert alle über seinen Tod und die Position seiner Leiche."
+            },
+            "desc": {
+                "en": "Equipped with a Dead Man's Switch that reveals their death and body location to all players through walls.",
+                "de": "Ausgestattet mit dem Dead Man's Switch, der seinen Tod und die Position seiner Leiche für alle Spieler durch Wände sichtbar macht."
+            },
+            "long": {
+                "en": "The Paranoid is an Innocent equipped with a Dead Man's Switch. Upon death by any means, all players receive a prominent message and can see the Paranoid's body location through walls.",
+                "de": "Der Paranoid ist ein Innocent, der mit einem Dead Man's Switch ausgestattet ist. Bei seinem Tod, aufgrund einer beliebige Ursachen, erhalten alle Spieler eine Nachricht auf dem Bildschirm und können die Position seiner Leiche durch Wände sehen."
+            }
+        },
         "pharaoh": {
             "enabled": true,
             "count": 6,
@@ -520,7 +540,7 @@
             }
         },
         "graverobber":{
-            "enabled": false,
+            "enabled": true,
             "count": 6,
             "title": {
                 "en": "Graverobber",
@@ -641,6 +661,26 @@
             "long": {
                 "en": "The Copycat investigates corpses to record their roles in their Files, allowing transformation into those roles every 30 seconds. Each role can only be used once, preventing infinite revival loops. Starts with one credit and earns more through kills, but needs appropriate roles to access their shops.",
                 "de": "Der Copycat untersucht Leichen, um deren Rollen in seinen Dateien aufzuzeichnen, die eine Transformation in diese Rollen alle 30 Sekunden ermöglichen. Jede Rolle kann nur einmal verwendet werden, um unendliche Wiederbelebungszyklen zu verhindern. Er beginnt mit einem Credit und verdient mehr durch Kills, benötigt aber geeignete Rollen, um auf ihre Shops zuzugreifen."
+            }
+        },
+        "doppelganger": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Doppelganger",
+                "de": "Doppelgänger"
+            },
+            "short": {
+                "en": "Steals roles but remains independent killer.",
+                "de": "Stiehlt Rollen, bleibt aber unabhängiger Killer."
+            },
+            "desc": {
+                "en": "Can assume another players' role through interaction (E) but stays on own team. Must eliminate everyone to win.",
+                "de": "Kann durch Interaktion (E) die Rolle eines anderen Spieler annehmen, bleibt aber im eigenen Team. Muss alle eliminieren, um zu gewinnen."
+            },
+            "long": {
+                "en": "The Doppelganger is a neutral killer who can steal another player's role using the interact key (E) when close to them. Unlike the Mimic, they maintain their independence and killer status while gaining the appearance and abilities of the stolen role. They must eliminate all other players to win.",
+                "de": "Der Doppelgänger ist ein neutraler Killer, der die Rolle eines anderen Spielers stehlen kann, indem er in dessen Nähe die Interaktionstaste (E) verwendet. Anders als der Mimic behält er seine Unabhängigkeit und seinen Killer-Status bei, während er das Aussehen und die Fähigkeiten der gestohlenen Rolle erhält. Muss alle anderen Spieler eliminieren, um zu gewinnen."
             }
         },
         "infected": {
@@ -913,6 +953,47 @@
             },
             "combination": ["jester", "survivalist", "priest"]
         },
+        "mimic": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Mimic",
+                "de": "Nachahmer"
+            },
+            "short": {
+                "en": "Steal another player's role.",
+                "de": "Stehlt die Rolle eines anderen Spielers."
+            },
+            "desc": {
+                "en": "Uses interaction key (E) to steal the role from other player. They join the team of their new role.",
+                "de": "Verwendet Interaktionstaste (E), um die Rolle eines anderen Spielers zu stehlen. Er tritt dem Team der neuen Rolle bei."
+            },
+            "long": {
+                "en": "The Mimic begins with no team allegiance but can steal another player's role by using the interact key (E) when close to them. After a brief delay, they assume that player's role and join their team, gaining all associated abilities and equipment.",
+                "de": "Der Nachahmer beginnt ohne Teamzugehörigkeit, kann aber die Rolle eines anderen Spielers stehlen, indem er in dessen Nähe die Interaktionstaste (E) verwendet. Nach kurzer Verzögerung übernimmt er die Rolle des Spielers und tritt dessen Team bei, wobei er alle zugehörigen Fähigkeiten und Ausrüstung erhält."
+            }
+        },
+        "thief": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Thief",
+                "de": "Dieb"
+            },
+            "short": {
+                "en": "Steals other teams' victories if alive at round end.",
+                "de": "Stiehlt den Sieg anderer Teams, wenn er am Ende der Runde noch lebt."
+            },
+            "desc": {
+                "en": "All players are warned of Thief's presence. Must survive until another team wins to steal their victory. Cannot steal from Jester.",
+                "de": "Alle Spieler werden vor der Anwesenheit des Diebs gewarnt. Muss überleben, bis ein anderes Team gewinnt, um deren Sieg zu stehlen. Kann nicht vom Jester stehlen."
+            },
+            "long": {
+                "en": "The Thief is announced at round start and can steal victory from any winning team except Jester if still alive when they win. This creates tension as teams must eliminate the Thief before securing victory, potentially forcing unlikely alliances.",
+                "de": "Der Dieb wird zu Rundenbeginn angekündigt und kann den Sieg von jedem gewinnenden Team außer dem Jester stehlen, wenn er bei deren Sieg noch am Leben ist. Dies erzeugt Spannung, da Teams den Dieb eliminieren müssen, bevor sie den Sieg sichern können, was zu ungewöhnlichen Allianzen führen kann."
+            },
+            "combination": []
+        },
         "pirate": {
             "enabled": true,
             "count": 8,
@@ -933,6 +1014,26 @@
                 "de": "Piraten sind an denjenigen gebunden, der ihren Vertrag hält. Der Kapitän kann den Vertrag einem neuen Meister zuwerfen, wodurch alle Piraten dem Team dieses Spielers beitreten. Wenn der Meister stirbt, wird der Vertrag fallengelassen und kann von einem neuen Meister beansprucht werden. Wenn der Kapitän stirbt, wird ein neuer Kapitän gewählt, der sich einen anderen Meister suchen kann."
             },
             "combination": ["jester", "spy", "jackal"]
+        },
+        "swapper": {
+            "enabled": true,
+            "count": 5,
+            "title": {
+                "en": "Swapper",
+                "de": "Tauscher"
+            },
+            "short": {
+                "en": "Swaps roles with their killer upon death.",
+                "de": "Tauscht bei Tod die Rolle mit seinem Mörder."
+            },
+            "desc": {
+                "en": "Cannot deal damage and appears as Jester to Traitors. Upon death, swaps roles and equipment with killer, who respawns with 1 HP.",
+                "de": "Kann keinen Schaden verursachen und erscheint Traitorn als Jester. Tauscht bei Tod Rolle und Ausrüstung mit dem Killer, der mit 1 HP wiederbelebt wird."
+            },
+            "long": {
+                "en": "The Swapper is a special Jester variant who cannot deal damage and appears as Jester to Traitors. When killed, they swap identities with their killer - exchanging roles and equipment. The killer becomes the new Swapper with only 1 health, while the Swapper assumes their role with full health. Server settings can modify respawn behaviors and health values.",
+                "de": "Der Swapper ist eine spezielle Jester-Variante, die keinen Schaden verursachen kann und Traitorn als Jester erscheint. Bei Tod tauscht er die Identität mit seinem Killer - Rollen und Ausrüstung werden getauscht. Der Killer wird zum neuen Swapper mit nur 1 Lebenspunkt, während der Swapper dessen Rolle mit voller Gesundheit übernimmt. Servereinstellungen können das Wiederbelebungsverhalten und die Gesundheitswerte ändern."
+            }
         },
         "unknown": {
             "enabled": true,
