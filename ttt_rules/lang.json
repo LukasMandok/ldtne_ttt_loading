@@ -9,13 +9,18 @@
                 "de": "Leuchtfeuer"
             },
             "short": {
-                "en": "They gains power as teammates die. After five deaths they are revealed to the terrorists.",
-                "de": "Sie gewinnen an Kraft, wenn Teamkameraden sterben. Nach fünf Todesfällen werden sie enttarnt."
+                "en": "They gain power as teammates die until they are revealed to the terrorists.",
+                "de": "Er gewinnt an Kraft, wenn Innocent streben, bis er offenbart wird."
             },
             "desc": {
                 "en": "The Beacon gains power as teammates die, improving stats like speed and damage. If they kill an innocent, they revert to a regular innocent and take damage. If they accumulate enough power, their role is revealed, becoming a trusted figure for the team.",
                 "de": "Der Beacon gewinnt an Kraft, wenn Teamkameraden sterben, und verbessert Werte wie Geschwindigkeit und Schaden. Wenn sie einen Innocentn töten, werden sie wieder zu einem normalen Innocentn und erleiden Schaden. Wenn sie genug Kraft gesammelt haben, wird ihre Rolle aufgedeckt und sie werden zu einer vertrauenswürdigen Figur für das Team."
-            }
+            },
+            "long": {
+                "en": "The Beacon gains increasing power each time a teammate dies and is confirmed, receiving buffs to speed, damage, health regeneration and other stats. Once sufficiently powered, their role is revealed to all players making them as trustworthy as a Detective. However, killing an Innocent causes them to lose their powers and take damage.",
+                "de": "Der Beacon gewinnt mit jedem bestätigten Tod eines Teamkameraden an Kraft und erhält Buffs für Geschwindigkeit, Schaden, Gesundheitsregeneration und andere Stats. Sobald er ausreichend stark ist, wird seine Rolle allen Spielern offenbart, was ihn so vertrauenswürdig macht wie einen Detective. Das Töten eines Innocent führt jedoch dazu, dass er seine Kräfte verliert und Schaden erleidet."
+            },
+            "combination": ["amnesiac", "unknown", "wrath"]
         },
         "clairvoyant": {
             "enabled": true,
@@ -25,13 +30,18 @@
                 "de": "Hellseher"
             },
             "short": {
-                "en": "Can recognize wether another player has a special role.",
+                "en": "Can detect if players have special roles.",
                 "de": "Kann erkennen ob ein anderer Spieler eine Spezialrolle hat."
             },
             "desc": {
-                "en": "The Clairvoyant can see the special roles of all non-standard players. They can also kill the Jester without triggering its win condition, and after doing so, the Jester respawns as their Sidekick.",
-                "de": "Der Hellseher kann die Sonderrollen aller Nicht-Standard-Spieler sehen. Er kann den Narren auch töten, ohne seine Siegbedingung auszulösen, und danach erscheint der Narr wieder als sein Handlanger."
-            }
+                "en": "The Clairvoyant can see if players have special roles without knowing which ones. They can also kill the Jester, who will respawns as their Sidekick.",
+                "de": "Der Hellseher kann erkennen, ob Spieler spezielle Rollen haben, ohne zu wissen, welche. Außerdem kann er den Jester töten, der als sein Sidekick wiederbelebt wird."
+            },
+            "long": {
+                "en": "The Clairvoyant is an Innocent who can detect if players have special roles beyond the basic Innocent, Traitor, or Detective roles. They don't see the specific role, only that one exists. They are the only player who can safely kill a Jester without triggering their win condition - the Jester then respawns as the Clairvoyant's Sidekick.",
+                "de": "Der Claircoyant ist ein Innocent, der erkennen kann, ob Spieler spezielle Rollen über die grundlegenden Innocent, Traitor oder Detective hinaus haben. Er sieht allerdings nicht die spezifische Rolle, nur dass eine existiert. Er ist der einzige Spieler, der einen Jester sicher töten kann, ohne dessen Gewinnbedingung auszulösen - der Jester wird dann als Sidekick des Clairvoyant wiederbelebt."
+            },
+            "combination": ["jester", "sidekick", "hitman"]
         },
         "cupid": {
             "enabled": true,
@@ -45,25 +55,14 @@
                 "de": "Kann ein Liebespaar erzeugen, das den Schaden teilt und zusammen stirbt."
             },
             "desc": {
-                "en": "Cupid starts with an invisible crossbow that makes two players fall in love. If used after someone's death, the effect is voided.",
-                "de": "Amor beginnt mit einer unsichtbaren Armbrust, die zwei Spieler dazu bringt, sich ineinander zu verlieben. Wenn die Armbrust nach dem Tod eines Spielers eingesetzt wird, ist der Effekt nichtig."
-            }
-        },
-        "lovers": {
-            "enabled": true,
-            "count": 6,
-            "title": {
-                "en": "Lovers",
-                "de": "Liebespaar"
+                "en": "The Cupid is an Innocent who can uses an invisible crossbow to make two players fall in love. The Lovers form their own team and share damage, dying together.",
+                "de": "Der Cupid ist ein Innocent und kann seine unsichtbare Armbrust benutzen, um zwei Spieler dazu zu bringen, sich zu verlieben. Die Liebenden bilden ihr eigenes Team, teilen Ihren den Schaden und sterben zusammen."
             },
-            "short": {
-                "en": "Lovers share damage. If one dies, the other also dies. They can win as their own team.",
-                "de": "Die Liebenden teilen sich den Schaden. Wenn einer stirbt, stirbt auch der andere. Sie können als ihr eigenes Team gewinnen."
+            "long": {
+                "en": "The Cupid begins with an invisible crossbow that links two players as Lovers. Linked players form a new time, share all damage between them and die together. Using the crossbow after someone alreadey died will nullify the effect without warning, preventing abuse.",
+                "de": "Der Cupid beginnt mit einer unsichtbaren Armbrust, die zwei Spieler als Liebespaar verbindet. Verbundene Spieler bilden ein neues Team, teilen den gesamten Schaden zwischen ihnen und sterben zusammen. Die Armbrust nach dem Tod eines Spielers zu benutzen, hebt den Effekt ohne Warnung auf, um Missbrauch zu verhindern."
             },
-            "desc": {
-                "en": "Lovers split damage between them, but if one dies, the other dies of a broken heart. If on opposite teams, they form their own team to win when everyone else is dead.",
-                "de": "Die Liebenden teilen den Schaden untereinander. Wenn einer stirbt, stirbt der andere an gebrochenem Herzen. Wenn sie in entgegengesetzten Teams sind, bilden sie ihr eigenes Team, um zu gewinnen, wenn alle anderen tot sind."
-            }
+            "combination": ["serialkiller"]
         },
         "lycanthrope": {
             "enabled": true,
@@ -73,12 +72,16 @@
                 "de": "Lykanthrop"
             },
             "short": {
-                "en": "Gets a power boost if they're the last innocent standing. Prior he doesn't know his role.",
-                "de": "Erhält einen Energieschub, wenn er der letzte lebende Innocent ist. Davor kennt er seiner Rolle nicht."
+                "en": "Gets a power boost if they're the last Innocent standing.",
+                "de": "Erhält einen Energieschub, wenn er der letzte lebende Innocent ist."
             },
             "desc": {
-                "en": "The Lycanthrope gains a significant power boost if they're the last innocent standing, including increased speed, health, and damage.",
-                "de": "Der Lykanthrop erhält einen erheblichen Kraftschub, wenn er der letzte überlebende Innocent ist, einschließlich erhöhter Geschwindigkeit, Gesundheit und Schaden."
+                "en": "The Lycanthrope gains a significant power boost if they're the last innocent standing, including increased speed, health, and damage. They don't know their special role until they're the last one.",
+                "de": "Der Lykanthrop erhält einen erheblichen Kraftschub, wenn er der letzte überlebende Innocent ist, einschließlich erhöhter Geschwindigkeit, Gesundheit und Schaden. Zuvor kennt er seine Spezialrolle allerdings nicht."
+            },
+            "long": {
+                "en": "The Lycanthrope appears as a normal Innocent until they become the last survivor of their team. At this point, their true power emerges with enhanced speed, sprint regeneration, damage output, bonus health and armor, and health regeneration abilities. This transformation gives them a fighting chance even when outnumbered, creating tense final confrontations.",
+                "de": "Der Lycanthrop erscheint als normaler Innocent, bis er der letzte Überlebende seines Teams wird. Zu diesem Zeitpunkt tritt seine wahre Kraft mit erhöhter Geschwindigkeit, Sprintregeneration, Schadensausgabe, Bonusgesundheit und Rüstung sowie Gesundheitsregeneration in Kraft. Diese Transformation gibt ihm eine Kampfchance, auch wenn er in der Unterzahl ist, und schafft spannende letzte Konfrontationen."
             }
         },
         "occultist": {
@@ -89,13 +92,18 @@
                 "de": "Okkultist"
             },
             "short": {
-                "en": "Resurrected if he falls below 25HP before being killed.",
-                "de": "Wird wiederbelebt, wenn er unter 25HP fällt, bevor er getötet wird."
+                "en": "Resurrected if he falls below 25HP before dying.",
+                "de": "Wird wiederbelebt, wenn er vor seinem Tot unter 25HP fällt."
             },
             "desc": {
-                "en": "When the Occultist falls below 25% health, they are resurrected after death. They are fireproof but must beware of others being near their corpse, which will notify them of their revival.",
-                "de": "Wenn der Okkultist unter 25% Gesundheit fällt, wird er nach dem Tod wiederbelebt. Sie sind feuerfest, müssen sich aber davor hüten, wenn sich andere in der Nähe ihrer Leiche aufhalten, da diese die Wiederbeleung mit bekommen."
-            }
+                "en": "The Occultist will return to life if damaged below 25% health before death. They are immune to fire damage but their revival alerts nearby players.",
+                "de": "Der Occultist wird wiederbelebt, wenn er vor seinem Tod unter 25% Gesundheit fällt. Er ist immun gegen Feuerschaden, aber die Wiederbelebung alarmiert nahe Spieler."
+            },
+            "long": {
+                "en": "The Occultist is an Innocent with revival abilities. If their health falls below 25% before death, they will return to life walking out of flames. While immune to fire damage, their revival creates a visible effect and nearby players are notified. One-shot kills prevent revival.",
+                "de": "Der Occultist ist ein Innocent mit Wiederbelebungsfähigkeiten. Wenn seine Gesundheit vor seinem Tod unter 25% fällt, wird er wiederbelebt und tritt aus den Flammen. Er ist gegen Feuerschaden immun, erzeugt seine Wiederbelebung einen sichtbaren Effekt, der benachbarte Spieler um ihn herum benachrichtigt. One-Shots verhindern die Wiederbelegung"
+            },
+            "combination": ["unknown", "necromancer", "priest"]
         },
         "pharaoh": {
             "enabled": false,
@@ -111,22 +119,6 @@
             "desc": {
                 "en": "The Pharaoh places an Ankh that converts a random Traitor into a Graverobber. If the Pharaoh dies, they can be revived by the Ankh unless stolen by the Graverobber.",
                 "de": "Der Pharao platziert ein Ankh, das einen zufälligen Traitor in einen Grabräuber verwandelt. Wenn der Pharao stirbt, kann er durch das Ankh wiederbelebt werden, es sei denn, es wurde vom Grabräuber gestohlen."
-            }
-        },
-        "graverobber": {
-            "enabled": false,
-            "count": 6,
-            "title": {
-                "en": "Graverobber",
-                "de": "Grabräuber"
-            },
-            "short": {
-                "en": "Steals the Pharaoh's Ankh to revive themselves.",
-                "de": "Stiehlt das Ankh des Pharaos, um sich wiederzubeleben."
-            },
-            "desc": {
-                "en": "The Graverobber works against the Pharaoh and can steal their Ankh, causing their own revival instead if placed before.",
-                "de": "Der Grabräuber arbeitet gegen den Pharao und kann dessen Ankh stehlen und stattdessen seine eigene Wiederbelebung bewirken wen dieses zuvor plaziert wurde."
             }
         },
         "priest" : {
@@ -153,12 +145,16 @@
                 "de": "Shinigami"
             },
             "short": {
-                "en": "Respawns as a fast-moving figure with a list of traitors.",
-                "de": "Er wird als schnelle Figur mit einer Liste von Traitorn wiederbelebgt."
+                "en": "An Innocent who respawns as a vengeful spirit with knowledge of all Traitors.",
+                "de": "Ein Innocent, der als rachsüchtiger Geist mit Wissen über alle Traitor wiederbelebt wird."
             },
             "desc": {
-                "en": "The Shinigami respawns as a fast-moving figure with a list of traitors. They gradually lose health over time and cannot communicate.",
-                "de": "Der Shinigami wird nach seinem Tod mit erhöhter Geschwindigkeit und einer Liste von Traitorn wiederbelebt. Sie verlieren mit der Zeit an Gesundheit und dürfen nicht mehr kommunizieren."
+                "en": "Returns to life as a fast-moving figure with a knife and list of Traitors, but loses health over time and must not communicate.",
+                "de": "Der Shinigami wird nach seinem Tod mit erhöhter Geschwindigkeit und einer Liste von Traitorn wiederbelebt, verliert aber mit der Zeit Gesundheit und darf nicht kommunizieren."
+            },
+            "long": {
+                "en": "The Shinigami begins as a normal Innocent, unaware of their special role. Upon death, they respawn with 200% movement speed, armed with a knife and crucial knowledge - a complete list of remaining Traitors. However, this power comes with significant limitations: they must not communicate with other players and continuously lose health over time. This creates a race against time to eliminate Traitors before their health depletes.",
+                "de": "Der Shinigami beginnt als normaler Innocent, ohne von seiner Spezialrolle zu wissen. Nach seinem Tod wird er mit 200% Bewegungsgeschwindigkeit, bewaffnet mit einem Messer und entscheidendem Wissen - einer vollständigen Liste der verbleibenden Traitorn, wiederbelebt. Diese Macht geht jedoch mit erheblichen Einschränkungen einher: Er darf nicht mit anderen Spielern kommunizieren und verliert kontinuierlich Gesundheit. Dies schafft ein Wettrennen gegen die Zeit, um die Traitor zu eliminieren, bevor seine Gesundheit aufgebraucht ist."
             }
         },
         "spectre": {
@@ -169,12 +165,16 @@
                 "de": "Gespenst"
             },
             "short": {
-                "en": "Haunts their killer and revives if their killer dies.",
+                "en": "Haunts their killer and revives when they die.",
                 "de": "Sucht den Killer heim und respawnt bei dessen Tod."
             },
             "desc": {
-                "en": "When killed, the Spectre haunts their killer, marking them with smoke. If their attacker dies, the Spectre is revived.",
-                "de": "Wenn er getötet wird, verfolgt das Gespenst seinen Mörder und markiert ihn mit Rauch. Wenn ihr Angreifer stirbt, wird das Gespenst wiederbelebt."
+                "en": "When killed, marks their attacker with visible smoke and returns to life if their killer dies.",
+                "de": "Wenn er getötet wird, markiert er seinen Angreifer mit sichtbarem Rauch und wird wiederbelebt, wenn sein Mörder stirbt."
+            },
+            "long": {
+                "en": "The Spectre is an Innocent with a powerful post-death ability. When killed, they haunt their attacker, marking them with visible smoke that other players can see. If their killer dies while haunted, the Spectre returns to life.",
+                "de": "Der Spectre ist ein Innocent mit einer mächtigen Post-Tod-Fähigkeit. Wenn er getötet wird, sucht er seinen Angreifer heim und markiert ihn mit Rauch, der für andere Spieler sichtbar ist. Wenn sein Mörder stirbt, wird der Spectre wiederbelebt."
             }
         },
         "spy": {
@@ -186,12 +186,17 @@
             },
             "short": {
                 "en": "Infiltrates the Traitors but doesn't know their identity.",
-                "de": "Infiltriert die Traitor und sieht, wie einer von ihnen aussieht."
+                "de": "Infiltriert die Traitor kennt aber deren Identität nicht."
             },
             "desc": {
-                "en": "A Spy has a shop and can blend with the Traitors, but they don't know who the Traitors are, while the Traitors don't know the Spy's role.",
-                "de": "Ein Spion hat einen Shop und kann sich unter die Traitor mischen, aber er weiß nicht, wer die Traitor sind, während die Traitor die Rolle des Spions nicht kennen."
-            }
+                "en": "The Spy is an Innocent with their own shop and works alongside Traitors without knowing who they are. Traitors see them as an ally but cannot fully trust them.",
+                "de": "Ein Spion ist ein Innocent mit einem Shop und mischt sich unter die Traitor, ohne zu wissen wer die Traitor sind. Für die Traitor erscheint der Spion als Verbündeter."
+            },
+            "long": {
+                "en": "The spy is an Inocent with a shop that tries to play alongside the traitors. The traitors see the spy as their colleague, but the spy doesn't know who is a traitor. Therefore the traitors do not know whom to trust. The traitor chat is disabled, when a spy is spawned in the round.",
+                "de": "Der Spion ist ein Innocent mit einem Shop, der versucht, mit den Verrätern zu spielen. Die Verräter sehen den Spion als ihren Kollegen, aber der Spion weiß nicht, wer ein Verräter ist. Daher wissen die Verräter nicht, wem sie vertrauen können. Der Verräter-Chat wird deaktiviert, wenn ein Spion in der Runde erscheint."
+            },
+            "combination": ["defective", "mesmerist", "accomplice"]
         },
         "survivalist": {
             "enabled": true,
@@ -201,13 +206,18 @@
                 "de": "Überlebenskünstler"
             },
             "short": {
-                "en": "An enhanced Innocent with a configurable shop.",
-                "de": "Normaler Innocent mit einem Shop."
+                "en": "An Innocent with access to a shop.",
+                "de": "Normaler Innocent mit Zugang zu einem Shop."
             },
             "desc": {
                 "en": "An enhanced Innocent with a configurable shop similar to the Detective’s.",
                 "de": "Ein verbesserter Innocent mit einem konfigurierbaren Shop ähnlich dem des Detective."
-            }
+            },
+            "long": {
+                "en": "The Survivalist is an enhanced Innocent with access to a configurable shop, which matches the Detective's shop by default.",
+                "de": "Der Survivalist ist ein verbesserter Innocent mit Zugang zu einem konfigurierbaren Shop, der standardmäßig dem Shop des Detective entspricht."
+            },
+            "combination": ["sheriff", "bodyguard", "jester"]
         },
         "trapper": {
             "enabled": true,
@@ -223,6 +233,10 @@
             "desc": {
                 "en": "The Trapper detects traps and sees visual indicators when traps are used. Other trap-users can also see when the Trapper uses a trap.",
                 "de": "Der Trapper erkennt Fallen und sieht visuelle Indikatoren, wenn Fallen verwendet werden. Andere Fallenbenutzer können ebenfalls sehen, wenn der Trapper eine Falle benutzt."
+            },
+            "long": {
+                "en": "The Trapper is an Innocent with unique trap-detection abilities. They receive visual ripple effects revealing trap at the location it was used. While they can use Traitor traps themselves, this power comes with risk - other trap users can detect when the Trapper deploys traps, potentially exposing their position.",
+                "de": "Der Trapper ein Innocent mit einzigartigen Fallenentdeckungsfähigkeiten. Sie erhalten visuelle Welleneffekte, die die Standorte der verwendeten Fallen enthüllen. Obwohl sie Traitorfallen selbst verwenden können, birgt diese Kraft ein Risiko - andere Fallenbenutzer können erkennen, wenn der Trapper Fallen einsetzt "
             }
         },
         "wrath": {
@@ -237,12 +251,38 @@
                 "de": "Kehrt als Traitor zurück, wenn er von einem Innocent getötet wird."
             },
             "desc": {
-                "en": "If the Wrath is killed by an innocent, they become a Traitor, but if killed by anyone else, they die normally.",
-                "de": "Wenn der Zorn von einem Innocent getötet wird, wird er zum Traitor, aber wenn er von jemand anderem getötet wird, stirbt er normal."
-            }
+                "en": "Originally Innocent but becomes a Traitor if killed by another Innocent. Dies normally if killed by other roles.",
+                "de": "Ursprünglich ein Innocent, wird aber zum Traitor, wenn er von einem anderen Innocent getötet wird. Stirbt normal, wenn er von anderen Rollen getötet wird."
+            },
+            "long": {
+                "en": "The Wrath starts as an Innocent but harbors a vengeful spirit. If killed by a fellow Innocent, they will be resurrected after a short delay as a Traitor, turning against their former allies. However, if killed by any non-Innocent role, they die permanently.",
+                "de": "Der Wrath beginnt als Innocent, kann aber sehr nachtragend sein. Wenn er von einem anderen Innocent getötet wird, wird er nach einer kurzen Verzögerung als Traitor wiederbelebt und wendet sich gegen seine ehemaligen Verbündeten. Wenn er jedoch von einer anderen Rolle als einem Innocent getötet wird, stirbt er dauerhaft."
+            },
+            "combination": ["occultist", "amnesiac", "shinigami"]
         }
     },
     "detective": {
+        "banker": {
+            "enabled": true,
+            "count": 5,
+            "title": {
+                "en": "Banker",
+                "de": "Banker"
+            },
+            "short": {
+                "en": "Receives credits when other players make purchases.",
+                "de": "Erhält Credits, wenn andere Spieler Einkäufe tätigen."
+            },
+            "desc": {
+                "en": "A Detective who collects credits spent by others in shops. Can transfer credits to other players but has reduced health and sprint capability.",
+                "de": "Ein Detective, der Credits sammelt, die andere Spieler in Shops ausgeben. Er kann Credits übertragen and andere Spieler, hat aber reduzierte Gesundheit und Sprintfähigkeit."
+            },
+            "long": {
+                "en": "The Banker receives all credits spent by other players in shops, shared between multiple Bankers if present. They can transfer credits to trusted Detectives/Survivalists for maximal profit. However, they are physically weaker, taking more damage and having limited sprint capacity.",
+                "de": "Der Banker erhält alle Credits, die andere Spieler in Shops ausgeben. Diese werden zwischen allen Bankern geteilt, wenn mehrere vorhanden sind. Er kann Credits an vertrauenswürdige Detectives/Survivalists übertragen, um maximalen Gewinn zu erzielen. Er ist jedoch körperlich schwächer, nimmt mehr Schaden und hat eine begrenzte Sprintkapazität."
+            },
+            "combination": ["survivalist", "serial_killer", "jackal"]
+        },
         "sheriff": {
             "enabled": true,
             "count": 8,
@@ -304,7 +344,11 @@
             },
             "desc": {
                 "en": "The Vigilante gains a damage multiplier by killing Traitors, but loses it when killing Innocents.",
-                "de": "Der Wächter erhält einen Schadensmultiplikator, wenn er Traitor tötet, verliert ihn aber, wenn er Innocents tötet."
+                "de": "Der Vigilante erhält einen Schadensmultiplikator, wenn er Traitor tötet, verliert ihn aber, wenn er Innocents tötet."
+            },
+            "long": {
+                "en": "The Vigilante is a specialized Detective who grows stronger with each Traitor or neutral enemy kill, increasing their damage multiplier. However, killing innocent teammates reduces their power.",
+                "de": "Der Vigilante ist ein spezialisierter Detective, der mit jedem getöteten Traitor oder neutralen Feind stärker wird und seinen Schadensmultiplikator erhöht. Das Töten unschuldiger Teammitglieder verringert jedoch seine Kraft."
             }
         }
     },
@@ -321,9 +365,35 @@
                 "de": "Arbeitet mit Traitor zusammen, kennt deren Identität aber nicht."
             },
             "desc": {
-                "en": "The Accomplice works alongside the Traitor but doesn't know who they are. They can only buy one Traitor item and can't win alone.",
-                "de": "Der Komplize arbeitet mit dem Traitorn zusammen, weiß aber nicht, wer sie sind. Er kann nur einen Gegenstand Im Traitor Shop kaufen und kann alleine nicht gewinnen."
-            }
+                "en": "The Accomplice supports the Traitor team without knowing their identities, while the Trailtor recognice the Accomplice. They dont have access to the shop and can't win alone.",
+                "de": "Der Komplize arbeitet mit dem Traitorn zusammen, ohne deren Intentität zu kennen, wohingegen die Traitor den Accomplice sehen. Er hat keinen Zugang zum Traitor Shop und kann nicht alleine gewinnen."
+            },
+            "long": {
+                "en": "The Accomplice supports the Traitor team without knowing their identities. While Traitors can see the Accomplice, they must prove their loyalty blindly. They have access to corpse radar, no access shop items and cannot win alone.",
+                "de": "Der Accomplice unterstützt das Traitor-Team, ohne deren Identität zu kennen. Während die Traitor den Accomplice sehen können, muss er diese blind herausfinden. Er hat Zugang zum Leichenradar, keinen Zugang zu Shop-Items und kann nicht alleine gewinnen."
+            },
+            "combination": ["survivalist", "spy", "hitman"]
+        },
+        "ajin": {
+            "enabled": true,
+            "count": 10,
+            "title": {
+                "en": "Ajin",
+                "de": "Ajin"
+            },
+            "short": {
+                "en": "A Traitor who gains power when last standing.",
+                "de": "Ein Traitor, der als letzter Überlebende an Kraft gewinnt."
+            },
+            "desc": {
+                "en": "Gains significant buffs when becoming the last Traitor alive, including speed, damage and health regeneration.",
+                "de": "Erhält erhebliche Buffs, wenn er der letzte lebende Traitor ist, einschließlich Geschwindigkeit, Schaden und Gesundheitsregeneration."
+            },
+            "long": {
+                "en": "The Ajin appears as a normal Traitor until they become their team's last survivor. Their true power emerges with enhanced speed, sprint regeneration, damage output, bonus health and armor, and health regeneration abilities.",
+                "de": "Der Ajin erscheint als normaler Traitor, bis er der letzte Überlebende seines Teams wird. Zu diesem Zeitpunkt tritt seine wahre Kraft hervor. Er erhält erhöhter Geschwindigkeit, Sprintregeneration, Schadensausgabe, Bonusgesundheit und Rüstung sowie Gesundheitsregeneration."
+            },
+            "combination": ["lycanthrope"]
         },
         "blight": {
             "enabled": true,
@@ -333,12 +403,16 @@
                 "de": "Pest"
             },
             "short": {
-                "en": "",
-                "de": "Wird er getötet, nimmt der Mörder Schaden bis zu 1HP, es sei denn, er heilt sich."
+                "en": "A Traitor who infects their killer with a deadly plague.",
+                "de": "Ein Traitor, der seinen Mörder mit einer tödlichen Seuche infiziert."
             },
             "desc": {
-                "en": "",
-                "de": ""
+                "en": "When killed, the Blight infects their attackers with a devastating plague that slowly drains health until treated or reaching critical levels.",
+                "de": "Wenn der Blight getötet wird, infiziert er seine Angreifer mit einer verheerenden Seuche, die langsam die Gesundheit entzieht, bis er geheilt wird oder kritische Werte erreicht."
+            },
+            "long": {
+                "en": "The Blight is a specialized Traitor role that continues to impact the game even after death. When killed, they infect their attacker with a plague that causes steady health loss. The infected player must either find healing or survive with their health reaching a critical threshold.",
+                "de": "Der Blight ist eine spezialisierte Traitor-Rolle, die das Spiel auch nach dem Tod weiterhin beeinflusst. Wenn er getötet wird, infiziert er seinen Angreifer mit einer Seuche, die einen stetigen Gesundheitsverlust verursacht. Der infizierte Spieler muss sich entweder heilen oder überlebet mit nur wenigen Lebenspunkten."
             }
         },
         "defective" : {
@@ -349,13 +423,18 @@
                 "de": "Defektiv"
             },
             "short": {
-                "en": "",
-                "de": "Ein Traitor, der wie ein Detective aussieht, aber nur von den Traitors als solchen erkannt wird."
+                "en": "A Traitor disguised as a Detective with access to Detective equipment.",
+                "de": "Ein Traitor, der sich als Detektiv ausgibt und Zugriff auf Detektivausrüstung hat."
             },
             "desc": {
-                "en": "",
-                "de": ""
-            }
+                "en": "Appears and functions like a Detective but secretly works for the Traitors, creating uncertainty about trusted roles.",
+                "de": "Erscheint und funktioniert wie ein Detective, arbeitet aber heimlich für die Traitor und schafft Unsicherheit über vertrauenswürdige Rollen."
+            },
+            "long": {
+                "en": "The Defective is a sophisticated Traitor role that appears identical to a Detective, complete with Detective equipment and scanner. They maintain all Detective functionality but serve the Traitor team. This creates a powerful dynamic of uncertainty, as players must question even traditionally trusted roles. The Defective must balance maintaining their cover while effectively supporting their team.",
+                "de": "Der Defektive ist eine ausgeklügelte Traitor-Rolle, die einem Detektiv identisch ist, und über die komplete Detektivausrüstung und Scanner verfügt. Sie behalten alle Detektivfunktionen bei, dienen aber dem Traitor-Team. Dies schafft eine starke Dynamik der Unsicherheit, da die Spieler selbst traditionell vertrauenswürdige Rollen in Frage stellen müssen. Der Defektive muss das Aufrechterhalten seines Deckmantels mit der effektiven Unterstützung seines Teams in Einklang bringen."
+            },
+            "combination": ["spy", "mesmerist", "bodyguard"]
         },
         "executioner": {
             "enabled": true,
@@ -365,12 +444,36 @@
                 "de": "Scharfrichter"
             },
             "short": {
-                "en": "Does additional damage to a predetermined target and less to the remaining players.",
-                "de": "Macht zusätzlichen Schaden auf einem vorbestimmten Ziel und weniger bei den restlichen Spielern."
+                "en": "Deals extra damage to a predetermined target but less to others.",
+                "de": "Fügt einem vorbestimmten Ziel zusätzlichen Schaden zu, allen anderen weniger."
             },
             "desc": {
-                "en": "The Executioner has a target and deals extra damage to them. Killing non-targets results in a delay before a new target is assigned.",
-                "de": ""
+                "en": "The Executioner has a predetermined target and deals extra damage to them, while significantly less to others.",
+                "de": "Der Executioner hat ein vorbestimmtes Ziel und fügt diesem zusätzlichen Schaden zu, während er anderen deutlich weniger Schaden zufügt."
+            },
+            "long": {
+                "en": "The Executioner is a specialized Traitor who must eliminate specific targets. They deal significantly more damage to their assigned target but reduced damage to other players. Killing non-targets results in a time penalty before receiving a new target.",
+                "de": "Der Executioner ist ein spezialisierter Traitor, der bestimmte Ziele eliminieren muss. Er fügt seinem zugewiesenen Ziel erhebllich mehr Schaden zu, aber weniger Schaden allen anderen Spielern. Das Töten von Nicht-Zielen führt zu einer Zeitstrafe, bevor ein neues Ziel zugewiesen wird."
+            }
+        },
+        "gambler": {
+            "enabled": true,
+            "count": 8,
+            "title": {
+                "en": "Gambler",
+                "de": "Glücksspieler"
+            },
+            "short": {
+                "en": "Starts with random Traitor items instead of credits.",
+                "de": "Beginnt mit zufälligen Traitor-Items anstelle von Credits."
+            },
+            "desc": {
+                "en": "Receives four random items from the Traitor shop at round start. Can earn credits normally afterward.",
+                "de": "Erhält zu Beginn der Runde vier zufällige Items aus dem Traitor-Shop. Kann danach normal Credits verdienen."
+            },
+            "long": {
+                "en": "The Gambler begins with four random Traitor items instead of starting credits. This forces adaptation to available equipment rather than following standard strategies. Can still earn and spend credits normally during the round.",
+                "de": "Der Gambler startet mit vier zufälligen Traitor-Items anstelle von Start-Credits. Dies zwingt zur Anpassung an verfügbare Ausrüstung anstatt Standardstrategien zu folgen. Kann während der Runde immer noch normal Credits verdienen und ausgeben."
             }
         },
         "glutton": {
@@ -418,8 +521,13 @@
             },
             "desc": {
                 "en": "The Hitman needs to kill their assigned target to earn credits. If the target dies another way, no reward is given.",
-                "de": "Der Auftragskiller muss das ihm zugewiesene Ziel töten, um Credits zu verdienen. Stirbt das Ziel auf andere Weise, gibt es keine Belohnung."
-            }
+                "de": "Der Hitman muss das ihm zugewiesene Ziel töten, um Credits zu verdienen. Stirbt das Ziel auf andere Weise, gibt es keine Belohnung."
+            },
+            "long": {
+                "en": "The Hitman starts with zero credits and must earn them by killing assigned targets. Only killing their current target rewards credits - if the target dies by other means, no reward is given but a new target is assigned.",
+                "de": "Der Hitman startet ohne Credits und muss sie verdienen, indem er die ihm zugewiesenen Ziele tötet. Nur das Töten seines aktuellen Ziels belohnt mit Credits - wenn das Ziel auf andere Weise stirbt, gibt es keine Belohnung. Es wird aber ein neues Ziel zugewiesen."
+            },
+            "combination": ["spy", "serial_killer", "sniffer"]
         },
         "mesmerist": {
             "enabled": false,
@@ -471,21 +579,88 @@
         }
     },
     "killer": {
-        "infested": {
+        "copycat": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Copycat",
+                "de": "Kopierer"
+            },
+            "short": {
+                "en": "Must kill everyone. Can adopt roles from investigated corpses.",
+                "de": "Muss alle eliminieren. Kann Rollen von untersuchten Leichen annehmen."
+            },
+            "desc": {
+                "en": "They must kill everyone. They record roles from investigated bodies in their Files and can transform into them. They cannot reuse roles and must wait between transformations.",
+                "de": "Er muss jeden töten. Er zeichnet Rollen von untersuchten Leichen in seinen Dateien auf und kann sich in sie verwandeln. Er kann Rollen nicht wiederverwenden und muss zwischen den Transformationen warten."
+            },
+            "long": {
+                "en": "The Copycat investigates corpses to record their roles in their Files, allowing transformation into those roles every 30 seconds. Each role can only be used once, preventing infinite revival loops. Starts with one credit and earns more through kills, but needs appropriate roles to access their shops.",
+                "de": "Der Copycat untersucht Leichen, um deren Rollen in seinen Dateien aufzuzeichnen, die eine Transformation in diese Rollen alle 30 Sekunden ermöglichen. Jede Rolle kann nur einmal verwendet werden, um unendliche Wiederbelebungszyklen zu verhindern. Er beginnt mit einem Credit und verdient mehr durch Kills, benötigt aber geeignete Rollen, um auf ihre Shops zuzugreifen."
+            }
+        },
+        "infected": {
             "enabled": true,
             "count": 8,
             "title": {
-                "en": "Infested",
-                "de": ""
+                "en": "Infected",
+                "de": "Infizierter"
             },
             "short": {
-                "en": "Infects others and can respawn if their host is alive.",
-                "de": ""
+                "en": "Kills other players, turning them into infected allies.",
+                "de": "Tötet andere Spieler, um sie in infizierten Verbündete zu verwandeln."
             },
             "desc": {
-                "en": "The Infested infects others by killing them, turning them into allies. If they die, they can respawn as long as their host stays alive.",
-                "de": ""
-            }
+                "en": "Kills other players to infect them, who then respawn as allies. All infected die if their host is killed. The Infected is allowed to kill the Jester.",
+                "de": "Tötet andere Spieler um sie zu infizieren und sie als Verbündete in sein Team wiederzubeleben. Alle Infizierten sterben, sobald der Infected getötet wird. Der Infizierte darf den Jester töten."
+            },
+            "long": {
+                "en": "The Infected plays independently, creating a team by killing and infecting other players. Infected victims respawn after a few seconds as allies, but their survival depends on protecting their host - if the original Infested dies, all infected players die too. Unlike most neutral killers, they can safely eliminate the Jester without triggering their win condition.",
+                "de": "Der Infected spielt unabhängig und schafft ein Team, indem er andere Spieler tötet und infiziert. Infizierte Opfer werden nach wenigen Sekunden als Verbündete wiederbelebt. Ihr Überleben hängt davon ab, ihren Wirt zu schützen - wenn der ursprüngliche Infizierte stirbt, sterben auch alle infizierten Spieler. Im Gegensatz zu den meisten neutralen Killern kann er den Narren töten, ohne dessen Siegbedingung auszulösen."
+            },
+            "combination": ["jester"]
+        },
+        "jackal": {
+            "enabled": true,
+            "count": 8,
+            "title": {
+                "en": "Jackal",
+                "de": "Schakal"
+            },
+            "short": {
+                "en": "Has to kill everybody can create a sidekick with a special deagle.",
+                "de": "Muss alle töten und kann mit einer speziellen Deagle einen Sidekick erstellen."
+            },
+            "desc": {
+                "en": "Has their own shop and team, can convert another player into his Sidekick using his special deagle. Must eliminate all other teams to win.",
+                "de": "Hat seinen eigenen Shop und Team, kann einen anderen Spieler in seinen Sidekick umwandeln, indem er seine spezielle Deagle verwendet. Muss alle anderen Teams eliminieren, um zu gewinnen."
+            },
+            "long": {
+                "en": "The Jackal plays solo with access to a shop They can convert one other player to his Sidekick using a special deagle. Missing a shot triggers a cooldown. When targeting a Priest, the entire brotherhood can be converted. The Jackal team must eliminate all others to win.",
+                "de": "Der Jackal spielt alleine mit Zugang zu einem Shop. Er kann einen anderen Spieler in seinen Sidekick verwandeln, indem er eine spezielle Deagle verwendet. Wenn er einen Priester trifft, kann die gesamte Bruderschaft umgewandelt werden. Das Jackal-Team muss alle anderen eliminieren, um zu gewinnen." 
+            },
+            "combination": ["sidekick", "survivalist", "pirate"]
+        },
+        "sidekick": {
+            "enabled": true,
+            "count": 0,
+            "title": {
+                "en": "Sidekick",
+                "de": "Sidekick"
+            },
+            "short": {
+                "en": "Assists their master and may inherit their role.",
+                "de": "Unterstützt seinen Meister und kann dessen Rolle erben."
+            },
+            "desc": {
+                "en": "Joins their master's team and helps them win. Can become the new master if the original dies.",
+                "de": "Tritt dem Team seines Meisters bei und hilft ihm zu gewinnen. Kann der neue Meister werden, wenn der ursprüngliche stirbt."
+            },
+            "long": {
+                "en": "The Sidekick is converted by either Jackal's deagle or Clairvoyant killing a Jester. They join their master's team and must help achieve victory. They inherit their master's role upon their death and must continue their mission.",
+                "de": "Der Sidekick wird entweder durch die Deagle des Jackals oder den Tod eines Narren durch den Clairvoyant umgewandelt. Er tritt dem Team seines Meisters bei und muss mit ihm zusammen gewinnen. Er erbt die Rolle seines Meisters bei dessen Tod und muss seine Mission fortsetzen."
+            },
+            "combination": ["jackal", "clairvoyant", "pirate"]
         },
         "necromancer": {
             "enabled": true,
@@ -508,15 +683,19 @@
             "count": 8,
             "title": {
                 "en": "Serial Killer",
-                "de": ""
+                "de": "Serienmörder"
             },
             "short": {
-                "en": "Uses a tracker to follow players' actions.",
-                "de": ""
+                "en": "Must eliminate everyone using their tracking abilities.",
+                "de": "Muss alle mithilfe seinen Tracking-Fähigkeiten eliminieren."
             },
             "desc": {
-                "en": "The Serial Killer works alone, using a tracker item to see players' actions. They can steal credits but are not rewarded for kills.",
-                "de": ""
+                "en": "Works alone and has to eliminate everyone else. Starts with a tracker to monitor player actions, a special knife and a limited amount of credits.",
+                "de": "Arbeitet alleine und muss alle anderen eliminieren. Started mit einen Tracker, um Spieleraktionen zu überwachen, eimen speziellen Messer und einer begrenzten Anzahl von Credits."
+            },
+            "long": {
+                "en": "The Serial Killer operates independently with the goal of being the last player standing. They begin with a tracker that reveals player actions through walls and a unique knife. Unlike other roles, they only receive one starting credit and cannot earn more through kills, though they can steal credits from corpses.",
+                "de": "Der Serial Killer arbeitet unabhängig mit dem Ziel, der letzte Spieler zu sein. Er beginnt mit einem Tracker, der Spieleraktionen durch Wände hindurch anzeigt und einem speziellen Messer. Im Gegensatz zu anderen Rollen erhält er nur einen Startkredit und kann keine weiteren durch Kills verdienen, obwohl er Credits von Leichen stehlen kann."
             }
         },
         "ravenous": {
@@ -540,33 +719,83 @@
             "count": 8,
             "title": {
                 "en": "Restless",
-                "de": ""
+                "de": "Ruheloser"
             },
             "short": {
-                "en": "Can revive multiple times with weakened stats.",
-                "de": ""
+                "en": "Can revive multiple times with weakening strength.",
+                "de": "Wird mit abnehmender Stärke mehrmals wiederbelebt."
             },
             "desc": {
-                "en": "The Restless can die multiple times, reviving each time with weakened stats until they run out of lives.",
-                "de": ""
+                "en": "The Restless can revive multiple times after death, but becomes weaker and takes longer to respawn with each life lost.",
+                "de": "Der Restless wird mehrmals nach seinem Tod wiederbelebt, wird aber schwächer und braucht mit jedem verlorenen Leben länger, um wiederzubelebt zu werden."
+            },
+            "long": {
+                "en": "The Restless is a neutral killer who must eliminate everyone else to win. Their unique ability allows them to respawn after death multiple times, but each revival comes at a cost - they become progressively weaker and take longer to return to life.",
+                "de": "Der Restless ist ein neutraler Killer, der alle anderen eliminieren muss, um zu gewinnen. Seine einzigartige Fähigkeit ermöglicht es ihm, mehrmals nach seinem Tod wiederbelebt zu werden, aber jede Wiederbelebung hat ihren Preis - er wird zunehmend schwächer und braucht länger, um wieder zum Leben zu erwachen."
             }
         }
     },
     "neutral": {
+        "amnesiac": {
+            "enabled": true,
+            "count": 8,
+            "title": {
+                "en": "Amnesiac",
+                "de": "Amnesie"
+            },
+            "short": {
+                "en": "Takes the roles of the first identified dead player.",
+                "de": "Übernimmt die Rolle des ersten identifizierten toten Spielers."
+            },
+            "desc": {
+                "en": "Must confirm a dead player's body to discover their new role, adopting that role and its team allegiance.",
+                "de": "Muss den Körper eines toten Spielers bestätigen, um seine neue Rolle zu entdecken und die Teamzugehörigkeit zu übernehmen."
+            },
+            "long": {
+                "en": "The Amnesiac begins with no memory of their true identity and must discover it through investigation. By confirming (not just inspecting) a dead player's body, they adopt that player's role and join their team. This unique mechanic creates interesting strategic choices about which bodies to confirm and when to reveal the transformation. The role change is announced to all players.",
+                "de": "Der Amnesiac beginnt ohne Erinnerung an seine wahre Identität und muss diese durch Untersuchung entdecken. Durch Bestätigung (nicht nur Inspektion) des Körpers eines toten Spielers übernimmt er die Rolle dieses Spielers und tritt seinem Team bei. Diese einzigartige Mechanik schafft interessante strategische Entscheidungen darüber, welche Körper bestätigt werden sollen und wann die Transformation enthüllt werden soll. Die Rollenänderung wird allen Spielern bekannt gegeben."
+            },
+            "combination": ["occultist", "necromancer", "pirate"]
+        },
         "bodyguard": {
             "enabled": true,
             "count": 8,
             "title": {
                 "en": "Bodyguard",
-                "de": ""
+                "de": "Leibwächter"
             },
             "short": {
-                "en": "Protects an assigned player but dies if they fail.",
-                "de": ""
+                "en": "Protects an assigned player and shares their team alignment.",
+                "de": "Schützt einen zugewiesenen Spieler und teilt dessen Teamzugehörigkeit."
             },
             "desc": {
-                "en": "The Bodyguard is assigned to protect a random player. If the protected player dies, the Bodyguard takes damage. If they kill their assigned player, they die.",
-                "de": ""
+                "en": "Assigned to protect a random player and joins their team. Takes damage if their target dies and receives heavy damage for harming them.",
+                "de": "Bekommt einenzufälligen Spieler zu schützen zugewiesen und tritt dessen Team bei. Erleidet Schaden, wenn das Ziel stirbt, und erhält schweren Schaden, wenn es ihm schadet."
+            },
+            "long": {
+                "en": "The Bodyguard spawns with a random player assigned for protection and joins their team. They receive a message revealing their target's role but cannot see other team members. The protected player will also be notified about having a bodyguard. If their protected player dies, the Bodyguard takes significant damage and gets a new target assigned. Harming their target results in reduced damage to the target but heavy damage reflected back to the Bodyguard.",
+                "de": "Der Bodyguard wird mit einem zufälligen Spieler zum Schutz zugewiesen und tritt dessen Team bei. Ihm wird die Rolle seines Schützlings offenbahrt, kann aber keine anderen Teammitglieder sehen. Der geschützte Spieler wird auch darüber informiert, dass er einen Bodyguard hat. Wenn der geschützte Spieler stirbt, erleidet der Bodyguard erheblichen Schaden und bekommt ein neues Ziel zugewiesen. Wenn er seinem Ziel Schaden zufügt, wird der Schaden am Ziel reduziert, aber schwerer Schaden wird an den Bodyguard zurückgegeben."
+            },
+            "combination": ["jackal", "pirate"]
+        },
+        "drunk": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Drunk",
+                "de": "Trunkenbold"
+            },
+            "short": {
+                "en": "May inherit role of a killed player by sobering up.",
+                "de": "Erbt die Rolle getöteten Spielers, indem er nüchtern wird."
+            },
+            "desc": {
+                "en": "Has a chance to 'sober up' when someone dies, taking on their role.",
+                "de": "Hat die Chance 'nüchtern zu werden', wenn jemand stirbt, und übernimmt dessen Rolle."
+            },
+            "long": {
+                "en": "The Drunk is a neutral role who begins with no clear allegiance. When other players die, they have a chance to 'sober up' and assume the role of the killed player, inheriting their team and abilities.",
+                "de": "Der Drunk ist eine neutrale Rolle, die ohne Teamzugehörigkeit beginnt. Wenn andere Spieler sterben, hat er die Chance, 'nüchtern zu werden' und die Rolle des getöteten Spielers zu übernehmen, wobei er dessen Team und Fähigkeiten erbt."
             }
         },
         "jester": {
@@ -574,15 +803,40 @@
             "count": 8,
             "title": {
                 "en": "Jester",
-                "de": ""
+                "de": "Narr"
             },
             "short": {
-                "en": "Tries to get killed to win.",
-                "de": ""
+                "en": "Tries to get killed to win without dealing any damage to others.",
+                "de": "Muss getötet werden um zu gewinnen, ohne anderen Schaden zufügen zu können."
             },
             "desc": {
-                "en": "The Jester's goal is to get killed by another player. If they are killed, they win, but they cannot kill themselves.",
-                "de": ""
+                "en": "A trickster who wins by convincing others to kill them. Cannot deal damage and are not allowed to kill themselves.",
+                "de": "Der Jester gewinnt indem er andere dazu bringt ihn zu töten. Er kann keinen Schaden anrichten und darf sich nicht selbst umbringen."
+            },
+            "long": {
+                "en": "The Jester plays in their own team with a unique win condition - getting killed by another player. Killing themself does not count. They cannot deal any damage, helping him to trigger other players. They should be carfull however, as not dealing damage reveals them as being the Jester. At the start of the round, it is announced to all players that a Jester is present.",
+                "de": "Der Jester spielt in seinem eigenen Team mit einer einzigartigen Siegbedingung - von einem anderen Spieler getötet zu werden. Sich selbst zu töten zählt nicht. Er kann keinen Schaden anrichten. Er sollte jedoch vorsichtig sein, da das Nichtanrichten von Schaden ihn als Jester entlarvt. Zu Beginn der Runde wird allen Spielern mitgeteilt, dass ein Jester anwesend ist."
+            },
+            "combination": ["swapper", "serial_killer", "infected"]
+        },
+        "lovers": {
+            "enabled": true,
+            "count": 6,
+            "title": {
+                "en": "Lovers",
+                "de": "Liebespaar"
+            },
+            "short": {
+                "en": "Lovers form their own team, they share damage and die together.",
+                "de": "Das Liebespaar bildet sein eigenes Team, teilt den Schaden und stirbt zusammen."
+            },
+            "desc": {
+                "en": "The Lovers are notified about falling in love. They share damage and die together. If from different teams, they form their own team and win as the last survivors.",
+                "de": "Das Liebespaar wird über Ihre Liebe informiert. Sie teilen den Schaden und sterben zusammen. Wenn sie aus verschiedenen Teams stammen, bilden sie ihr eigenes Team und gewinnen als letzte Überlebende."
+            },
+            "long": {
+                "en": "The lovers are created by the Cupid and are notified of their love. They share the damage, whereby in the event of death, the other dies after a few seconds due to a broken heart. If they are from different teams, they form their own team and win as last survivors. They can see their better half through walls.",
+                "de": "Das Liebespaar wird vom Cupid erzeugt und wird über ihre Liebe informiert. Sie teilen den Schaden, wobei im Todesfall der andere aufgrund eines gebrochenen Herzens nach wenigen Sekunden stirbt. Wenn sie aus verschiedenen Teams stammen, bilden sie ihr eigenes Team und gewinnen als letzte Überlebende. Sie können ihre bessere Hälfte durch Wände hindurch sehen."
             }
         },
         "marker": {
@@ -590,23 +844,28 @@
             "count": 8,
             "title": {
                 "en": "Marker",
-                "de": ""
+                "de": "Marker"
             },
             "short": {
-                "en": "Marks players to win once enough are marked.",
-                "de": ""
+                "en": "Must mark other players to win. Cannot deal damage.",
+                "de": "Muss andere Spieler markieren, um zu gewinnen. Kann keinen Schaden anrichten."
             },
             "desc": {
-                "en": "The Marker marks players with a paintgun to win when enough players are marked. They can revive marked dead players. The Marker cannot deal damage and must be strategic in marking players.",
-                "de": ""
-            }
+                "en": "The Marker marks players with a paintgun to win when enough players are marked. They can revive marked dead players as they dont count as marked otherwise. The Marker cannot deal damage, while marked players cant deal damage to him.",
+                "de": "Der Marker markiert Spieler mit einer Paintgun, um zu gewinnen, wenn genügend Spieler markiert sind. Er kann markierte tote Spieler wiederbeleben, da sie sonst nicht als markiert zählen. Der Marker kann keinen Schaden anrichten, während markierte Spieler ihm keinen Schaden zufügen können."
+            },
+            "long": {
+                "en": "The Marker plays independently and must mark 3/4 of all other players with their paintgun to win. They cannot deal damage or win through combat. Marked players are notified and won't be able to deal damage to the Marker anymore. The Marker can revive dead bodies who respawn as marked players, keeping their original role. Dead bodys of makred players don't count towards the threshold anymore. A special UI shows marking progress relative to surviving players. All marks are removed if the Marker dies.",
+                "de": "Der Marker spielt unabhängig und muss 3/4 aller anderen Spieler mit seiner Paintgun markieren, um zu gewinnen. Er kann keinen Schaden anrichten oder durch Kämpfe gewinnen. Markierte Spieler werden benachrichtigt und können dem Marker keinen Schaden mehr zufügen. Der Marker kann tote Körper wiederbeleben, die als markierte Spieler wiederbelebt werden und ihre ursprüngliche Rolle behalten,. Die markierten Körper toter Spieler zählen nicht mehr zur Schwelle. Eine spezielle Anzeige zeigt den Fortschritt der Markierung im Verhältnis zu den überlebenden Spielern an. Alle Markierungen werden entfernt, wenn der Marker stirbt."
+            },
+            "combination": ["jester", "survivalist", "priest"]
         },
         "pirate": {
             "enabled": true,
             "count": 8,
             "title": {
                 "en": "Pirate",
-                "de": ""
+                "de": "Pirat"
             },
             "short": {
                 "en": "Serves the holder of their contract.",
@@ -622,18 +881,22 @@
             "count": 8,
             "title": {
                 "en": "Unknown",
-                "de": ""
+                "de": "Unbekannter"
             },
             "short": {
                 "en": "Respawns with the killer's role if killed.",
-                "de": ""
+                "de": "Wir mit der Rolle des Killers wiederbelebt, wenn er getötet wird."
             },
             "desc": {
-                "en": "The Unknown loses if they survive until the end. However, if killed by another player, they respawn with the killer’s role and assist them in winning.",
-                "de": ""
+                "en": "The Unknown loses if they survive until the end.  When killed by another player, they immediately respawn with their killer's role and join their team.",
+                "de": "Der Unknown verliert, wenn er bis zum Ende überlebt. Wenn er von einem anderen Spieler getötet wird, wird er sofort mit der Rolle seines Mörders wiederbelebt und tritt dessen Team bei."
+            },
+            "long": {
+                "en": "The Unknown plays as their own team initially but cannot win by surviving. Their unique ability triggers when killed by another player - they instantly respawn with the same role as their killer and join that team. The role switch creates a strong bond of trust between the Unknown and their killer.",
+                "de": "Der Unknown spielt zunächst in seinem eigenen Team, kann aber nicht gewinnen, indem er überlebt. Seine einzigartige Fähigkeit wird ausgelöst, sobald er von einem anderen Spieler getötet wird - er wird sofort mit derselben Rolle seines Mörders wiederbelebt und tritt dessen Team bei. Der Rollenwechsel schafft eine starke Vertrauensbindung zwischen dem Unknown und seinem Mörder."
             }
-        }
-    }    
+        }    
+    }
 },
 
 "ui": {
