@@ -160,13 +160,37 @@
 
         .role-description {
             margin-top: 1rem;
+            position: relative;
+            padding-bottom: 1.5em;
         }
 
-        .role-innocent { color: #32cd32; }
-        .role-detective { color: #1e90ff; }
-        .role-traitor { color: #ff4500; }
-        .role-killer { color: #ffa500; }
-        .role-neutral { color: #8c00c7; }
+        .desc-toggle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #666;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .desc-toggle:hover {
+            color: #fff;
+        }
+
+        .long-description {
+            display: none;
+        }
+
+        .show-long .short-description {
+            display: none;
+        }
+
+        .show-long .long-description {
+            display: block;
+        }
+
 
         .language-selector {
             position: fixed;
@@ -217,6 +241,12 @@
             padding: 0.375rem;
         }
 
+        .role-innocent { color: #32cd32; }
+        .role-detective { color: #1e90ff; }
+        .role-traitor { color: #ff4500; }
+        .role-killer { color: #ffa500; }
+        .role-neutral { color: #8c00c7; }
+
     </style>
 </head>
 
@@ -263,9 +293,11 @@
         }
     
         let currentLang = 'en';
+        let currentPlayerCount = 10;
+
         let roleData = {};
         let expandedCards = new Set();
-        let currentPlayerCount = 10;
+        let expandedDescriptions = new Set();
 
         function createRoleCard(role, roleId, lang) {
             const titleText = lang === 'en' 
@@ -274,18 +306,23 @@
                 <span class="original-title">${role.title['en']}</span>`;
                 
             const isUnavailable = role.count > currentPlayerCount;
+            const hasLongDesc = role.long && role.long[lang];
 
             return `
                 <div class="col-md-4">
                     <div class="role-card ${!role.enabled ? 'disabled' : ''} ${isUnavailable ? 'unavailable' : ''}" 
-                        data-bs-toggle="collapse" data-bs-target="#description-${roleId}">
+                        data-bs-target="#description-${roleId}">
                         <h5>
                             ${titleText}
                             <span class="player-count-box">${role.count}</span>
                             <i class="expand-icon bi bi-caret-down-fill"></i>
                         </h5>
                         <div id="description-${roleId}" class="collapse role-description">
-                            <p>${role.desc[lang]}</p>
+                            <p class="short-description">${role.desc[lang]}</p>
+                            ${hasLongDesc ? `
+                                <p class="long-description">${role.long[lang]}</p>
+                                <i class="desc-toggle bi bi-three-dots" data-role-id="${roleId}"></i>
+                            ` : ''}
                         </div>
                     </div>
                 </div>`;
@@ -347,19 +384,49 @@
                 const card = document.getElementById(cardId);
                 if (card) {
                     card.classList.add('show');
-                    const icon = document.querySelector(`[data-bs-target="#${cardId}"]`);
-                    if (icon) {
-                        icon.classList.add('rotate');
+                    const cardElement = document.querySelector(`[data-bs-target="#${cardId}"]`);
+                    if (cardElement) {
+                        const icon = cardElement.querySelector('.expand-icon');
+                        if (icon) {
+                            icon.classList.add('rotate');
+                        }
                     }
+                }
+            });
+            expandedDescriptions.forEach(roleId => {
+                const description = document.getElementById(`description-${roleId}`);
+                if (description) {
+                    description.classList.add('show-long');
                 }
             });
 
             observeRoleCards();
 
-            // Add event listeners to track expanded state
             document.querySelectorAll('.role-card').forEach(card => {
                 card.addEventListener('click', (event) => {
+                    // If clicked on desc-toggle, only handle description toggle
+                    if (event.target.classList.contains('desc-toggle')) {
+                        event.preventDefault();
+                        const roleId = event.target.dataset.roleId;
+                        const description = document.getElementById(`description-${roleId}`);
+                        
+                        if (expandedDescriptions.has(roleId)) {
+                            expandedDescriptions.delete(roleId);
+                            description.classList.remove('show-long');
+                        } else {
+                            expandedDescriptions.add(roleId);
+                            description.classList.add('show-long');
+                        }
+                        return;
+                    }
+
+                    // Otherwise handle card collapse
                     const targetId = card.getAttribute('data-bs-target').substring(1);
+                    const collapseElement = document.getElementById(targetId);
+                    const bsCollapse = new bootstrap.Collapse(collapseElement, {
+                        toggle: true
+                    });
+
                     if (expandedCards.has(targetId)) {
                         expandedCards.delete(targetId);
                         card.querySelector('.expand-icon').classList.remove('rotate');
@@ -369,6 +436,29 @@
                     }
                 });
             });
+
+            // Add event listeners to track expanded state
+            // document.querySelectorAll('.role-card').forEach(card => {
+            //     card.addEventListener('click', (event) => {                
+            //         console.log("clicked role-card");
+            //         const targetId = card.getAttribute('data-bs-target').substring(1);
+            //         if (expandedCards.has(targetId)) {
+            //             console.log("delete expanded card");
+            //             expandedCards.delete(targetId);
+            //             card.querySelector('.expand-icon').classList.remove('rotate');
+            //         } else {
+            //             console.log("add expanded card");
+            //             expandedCards.add(targetId);
+            //             card.querySelector('.expand-icon').classList.add('rotate');
+            //         } 
+            //     });
+
+            //     card.addEventListener('hidden.bs.collapse', (event) => {
+            //         const roleId = event.target.id.replace('description-', '');
+            //         expandedDescriptions.delete(roleId);
+            //         event.target.classList.remove('show-long');
+            //     });
+            // });
         }
 
         function updateLanguageDisplay() {
