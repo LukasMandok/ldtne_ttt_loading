@@ -142,7 +142,7 @@
             grid-row: 1;
             cursor: pointer;
             color: #aaa;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease;  /* Add color transition */
             justify-self: end;
         }
 
@@ -155,24 +155,51 @@
         }
 
         .expand-icon:hover {
-            color: #f0f0f0;
+            color: #fff;  /* Match desc-toggle hover color */
         }
 
         .role-description {
             margin-top: 1rem;
             position: relative;
-            padding-bottom: 1.5em;
+            padding-bottom: 1em;
         }
 
         .desc-toggle {
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: -0.5em;
+            left: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
             color: #666;
             cursor: pointer;
-            padding: 0.5rem;
             transition: color 0.3s ease;
+        }
+
+        .desc-toggle::before {
+            content: "\F279";  /* Bootstrap compact chevron-down */
+            font-family: "bootstrap-icons";
+            font-size: 1.6em;
+            display: inline-block;
+            -webkit-text-stroke: 2px;
+            margin-top: 0.2em;
+            animation: chevron-down 0.3s ease forwards;
+        }
+
+        .show-long .desc-toggle::before {
+            animation: chevron-up 0.3s ease forwards;
+        }
+
+        @keyframes chevron-down {
+            0% { transform: scaleY(0); }
+            50% { transform: scaleY(0.1); }
+            100% { transform: scaleY(1); }
+        }
+
+        @keyframes chevron-up {
+            0% { transform: scaleY(1); }
+            50% { transform: scaleY(0.1) rotate(180deg); }
+            100% { transform: scaleY(1) rotate(180deg); }
         }
 
         .desc-toggle:hover {
@@ -321,7 +348,7 @@
                             <p class="short-description">${role.desc[lang]}</p>
                             ${hasLongDesc ? `
                                 <p class="long-description">${role.long[lang]}</p>
-                                <i class="desc-toggle bi bi-three-dots" data-role-id="${roleId}"></i>
+                                <div class="desc-toggle" data-role-id="${roleId}"></div>
                             ` : ''}
                         </div>
                     </div>
@@ -413,9 +440,11 @@
                         if (expandedDescriptions.has(roleId)) {
                             expandedDescriptions.delete(roleId);
                             description.classList.remove('show-long');
+                            event.target.classList.remove('rotate');  // Remove rotate class
                         } else {
                             expandedDescriptions.add(roleId);
                             description.classList.add('show-long');
+                            event.target.classList.add('rotate');    // Add rotate class
                         }
                         return;
                     }
