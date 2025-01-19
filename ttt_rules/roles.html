@@ -166,6 +166,24 @@
             margin-top: 1rem;
             position: relative;
             padding-bottom: 1em;
+            overflow: hidden;
+        }
+
+        .descriptions-wrapper {
+            display: grid;
+            transition: height 0.3s ease;
+        }
+
+        .long-description {
+            display: none;
+        }
+
+        .show-long .short-description {
+            display: none;
+        }
+
+        .show-long .long-description {
+            display: block;
         }
 
         .desc-toggle {
@@ -208,18 +226,6 @@
 
         .desc-toggle:hover {
             color: #fff;
-        }
-
-        .long-description {
-            display: none;
-        }
-
-        .show-long .short-description {
-            display: none;
-        }
-
-        .show-long .long-description {
-            display: block;
         }
 
 
