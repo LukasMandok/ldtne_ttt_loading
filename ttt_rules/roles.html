@@ -133,6 +133,10 @@
             align-self: center;
         }
 
+        .role-card.unavailable .player-count-box {
+            background-color: #2f2f2f;  /* Lighter background for better contrast */
+        }
+
         .title-wide .player-count-box {
             grid-column: 3 !important;
         }
@@ -191,15 +195,15 @@
         }
 
         @keyframes chevron-down {
-            0% { transform: scaleY(0); }
+            0% { transform: scaleY(-1); }
             50% { transform: scaleY(0.1); }
             100% { transform: scaleY(1); }
         }
 
         @keyframes chevron-up {
             0% { transform: scaleY(1); }
-            50% { transform: scaleY(0.1) rotate(180deg); }
-            100% { transform: scaleY(1) rotate(180deg); }
+            50% { transform: scaleY(0.1); }
+            100% { transform: scaleY(-1); }
         }
 
         .desc-toggle:hover {
